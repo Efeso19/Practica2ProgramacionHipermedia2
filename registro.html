@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Registro</title>
+		<link rel="stylesheet" type="text/css" href="CSS/main.css" />
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans|Oswald' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<header>
+			<br>
+			<img src="Imagenes/logotipo.png" height="64" width="64"> <h1>Travell</h1>
+		</header>
+
+		<nav>
+			<a href="index.html">Inicio</a> |
+			<a href="login.html">Login</a> |
+			<a href="registro.html">Registrarse</a> |
+			<a href="">Perfil</a> |
+			<a href="">Logout</a> |
+			<a href="buscar_viajes.html">Buscar viajes</a> |
+			<a href="crear_viaje.html">Crear viaje</a> 
+		</nav>
+
+		<section>
+			<form action"">
+				<fieldset>Registro</fieldset>
+				<label for="nombreusuario">Nombre de usuario:</label>
+				<br>
+				<input type="text" id="nombreusuario" placeholder="Usuario" required autofocus pattern="[a-zA-Z0-9]{0,20}" maxlength="20">
+				<!-- En el usuario he de preguntar cual es el minimo de caracteres -->
+				<br>
+				<label for="password1">Contraseña: </label>
+				<br>
+				<input type="password" id="password1" placeholder="*******" required pattern="[a-zA-Z][a-zA-Z0-9_-]{0,20}" maxlength="20">
+				<!-- En el password he de preguntar cual es el minimo de caracteres -->
+				<br>
+				<label for="password2">Repetir contraseña: </label>
+				<br>
+				<input type="password" id="password2" placeholder="*******" required pattern="[a-zA-Z0-9_-]{0,20}" maxlength="20">
+				<!-- En el password he de preguntar cual es el minimo de caracteres -->
+				<!--  -->
+				<br>
+				<label for="nombre_completo">Nombre completo: </label>
+				<br>
+				<input type="text" id="nombre_completo" placeholder="Nombre completo" required>
+				<br>
+				<label for="correoelectronico">Email:</label>
+				<br>
+				<input type="email" id="correoelectronico" placeholder="Email" required>
+				<br>
+				<label for="avatarusuario">Foto:</label>
+				<br>
+				<input type="file" id="avatarusuario">
+				<br>
+				<input type="submit" id ="regristrarse" value="Registrarse">
+			</form>
+		</section>
+		<footer>
+			2016 &copy; <a href="">Contacto</a> | <a href="acerca.html">Acerca de nosotros</a>
+		</footer>
+		
+	</body>
+
+</html>

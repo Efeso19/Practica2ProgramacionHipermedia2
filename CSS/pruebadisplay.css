@@ -1,0 +1,38 @@
+
+a {
+  
+  height: 300px;
+  /*perspective: 600;*/
+  position: relative;
+  width: 400px;
+}
+figure {
+
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+ /*puesto*/
+}
+figure:hover {
+  transform: rotateY(180deg);
+
+  /*puesto*/
+}
+figure img {
+  backface-visibility: hidden;
+  border-radius: 6px;
+  
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+figure figcaption {
+  background: #eaeaed;
+  color: #0087cc;
+  /*line-height: 150px;*/
+  text-align: center;
+  height: 300px;
+  width: 400px;
+  transform: rotateY(180deg);
+}
