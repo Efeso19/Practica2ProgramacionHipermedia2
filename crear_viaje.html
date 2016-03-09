@@ -1,30 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
+		<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Crear viaje</title>
 		<link rel="stylesheet" type="text/css" href="CSS/main.css" />
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	</head>
 	<body>
+
 		<header>
-				<h1><img src="Imagenes/logotipo.png" height="64" width="64"> Vueling</h1>
+			
+			<img src="Imagenes/logotipo.png" height="40" width="40" alt="logo de la web"> <h1>Travell</h1>
 		</header>
 		<nav>
-			<a href="index.html">Inicio</a>
-			<a href="login.html">Login</a>
-			<a href="registro.html">Registrarse</a>
-			<a href="">Perfil</a>
-			<a href="">Logout</a>
-			<a href="buscar_viajes.html">Buscar viajes</a>
-			<a href="crear_viaje.html">Crear viaje</a>
+			<input type="checkbox" id="menu-trigger">
+			<ul>
+				<li><label for="menu-trigger"><span>&equiv;</span></label></li>
+				<li><a href="index.html"><i class="fa fa-home"></i> <span>Inicio</span></a></li> 
+				<li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login</span></a></li> 
+				<li><a href="registro.html"><i class="fa fa-plus"></i> <span>Registrarse</span></a></li>
+				<li><a href=""><i class="fa fa-user"></i> <span>Perfil</span></a></li> 
+				<li><a href=""><i class="fa fa-sign-out"></i> <span>Logout</span></a></li> 
+				<li><a href="buscar_viajes.html"><i class="fa fa-search"></i> <span>Buscar viajes</span></a></li> 
+				<li><a href="crear_viaje.html"><i class="fa fa-plane"></i> <span>Crear viaje</span></a></li>	
+
+			</ul>
+			
 		</nav>
+		<br>
+		<section class="espacio_to_nav">
+			<h2>¡Crea tu viaje!</h2>
+			<br>
+				<br>
+		
+				<form>
+
+					<label for="titulodelviaje">T&iacute;tulo del viaje</label>
+					<input type="text" id="titulodelviaje" maxlength="200" placeholder="T&iacute;tulo del viaje" required>
+					<br>
+					<label for="fechadesde">Desde </label>
+					<br>
+					<input type="date" id="fechadesde" required>
+					<br>
+					<label for="fechahasta">Hasta</label>
+					<br>
+					<input type="date" id="fechahasta" required>
+					<br>
+					<label for="descripciondelviaje">Descripci&oacute;n</label>
+					<br>
+					<textarea id="descripciondelviaje" maxlength="500" placeholder="Máximo 500 caractéres" rows="4" required cols="50" ></textarea>
+					<label>valoración:</label> <div class="star-rating-valorar">
+									<a>&#9733;</a>
+									<a>&#9733;</a>
+									<a>&#9733;</a>
+									<a>&#9733;</a>
+									<a>&#9733;</a>
+								</div>
+
+					<h2>Sube tus mejores fotos</h2>
+					<input type="file" id="subirfoto">
+					<input type="submit" value="Añadir fotografía">
+					<br>
+					<img src="Imagenes/paisajePractica1.jpg" alt="fotos subidas" class="fotossubidas">
+					<textarea  id="descripcionfotosubida1" maxlength="75" placeholder="descripcion de la imagen" rows="6" cols="20" required></textarea>
+					<img src="Imagenes/paisajePractica1.jpg" alt="fotos subidas" class="fotossubidas">
+					<textarea  id="descripcionfotosubida2" maxlength="75" placeholder="descripcion de la imagen" rows="6" cols="20" required></textarea>
+					<input type="button" value="Eliminar ultima foto">
+					<input type="submit" value="Crear viaje">
+				</form>
+			
 
 
+			
+		</section>
+		
 
-
-		<footer>
-			2016 &copy; <a href="">Contacto</a> | <a href="acerca.html">Acerca de nosotros</a>
-		</footer>
+		
+	<footer>
+		<time datetime="2016">2016</time> &copy; <a href="">Contacto</a>  <a href="acerca.html">Sobre nosotros</a>
+	</footer>
+		
 		
 	</body>
 

@@ -1,22 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Oswald);
 
-/*Este codigo corresponde al rating de la parte del index.html*/
 .star-rating a {
 	font-size: 20px;
 	display: inline-block;
-	color: #95a5a6; 
 }
-.star-rating:hover a {
+
+.pintada{
 	color: #f39c12; 
 }
-.star-rating:hover a:hover ~ a {
+
+h2{
+	width: 100%;
+}
+
+.star-rating-valorar a {
+	font-size: 20px;
+	display: inline-block;
+}
+
+.star-rating-valorar:hover a {
+	color: #f39c12; 
+}
+
+.star-rating-valorar:hover a:hover ~ a {
 	color: #95a5a6; 
 }
+
+
 
 label{
 	text-decoration: underline;
-	 font-weight: bold;
-	 font-size: 20px;
-
+	font-weight: bold;
+	font-size: 20px;
 }
 
 body{
@@ -24,16 +39,315 @@ body{
 	font-family: 'Open Sans', sans-serif;
 	width: 100%;
 	text-align: center;
+	margin: 0;
 }
 
 header{
-	position: absolute;
+	position: fixed;
+	top: 0;
+	z-index: 2;
 	
 }
 
-a > img{
-	height: 300px;
-	width: 400px;
+
+
+article > img{
+	border-radius: 15px;
+	height: 270px;
+	width: 320px;
+	
+}
+
+.descripcionfoto{
+	height: 270px;
+	width: 330px;
+	margin-bottom: -275px;
+	opacity: 0;
+	position: relative;	
+	top: -275px;
+	border-radius: 10px;
+		transform-style: flat;
+	transition: all .5s linear;
+}
+
+.descripcionfoto:hover{
+	opacity: 1;
+	background-color: rgb(255, 240, 201);
+
+}
+
+
+
+div>article>h4{
+	text-align: left;
+
+}
+
+div>article>p{
+	text-align: right;
+}
+
+section > p{
+	padding-left: 10%;
+	padding-right: 10%;
+
+}
+
+footer{
+	margin-bottom: 15px;
+}
+
+form{
+	width: 325px;
+}
+
+nav{
+	background-color: black;
+	text-align: center;
+	height: 40px;
+	padding-top: 35px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: 1;
+}
+
+textarea{
+	width: 100%;
+}
+
+#descripcionfotosubida1, #descripcionfotosubida2{
+	width: auto;
+}
+
+nav>ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	max-height:1.30em;
+	overflow:hidden;
+	transition: max-height .3s ease;
+	background-color: black;
+	opacity: 1;
+	position: relative;
+	top: -15px;
+}
+
+nav>ul>li>label>span{
+	color:white;
+	padding-right: 20px;
+}
+
+/* nav>ul:hover{ 
+	max-height:15em;
+}*/
+
+label[for="menu-trigger"]{
+	
+	cursor:pointer;
+	padding-right:.2em;
+	font-size:1.5em;
+	font-weight:bold;
+	width:100%;
+	display:block;
+	text-align:right;
+}
+
+nav>#menu-trigger:checked + ul{
+	max-height:20em;	
+}
+
+nav>#menu-trigger{
+	display:none;
+	color: white;
+}
+ol{
+	text-align: left;
+}
+
+nav>ul>li{
+	line-height:1.25em;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+nav>ul>li>a{
+	color:white;
+	text-decoration: none;
+	font-size: 15px;
+}
+
+
+/*
+span{
+	padding-right: 0.5em;
+	color: white;
+	font-size: 40px;
+}
+*/
+
+header{
+	margin-top: 15px;
+}
+
+header>h1{
+	color: white;
+	position: absolute;
+	top: -30px;
+	left: 90px;
+}
+
+header>img{
+	position: absolute;
+	left: 10px;
+}
+
+nav a{
+	font-family: 'Oswald', sans-serif;
+	color: white;
+	text-decoration: none;
+	font-size: 25px;
+}
+
+
+
+nav>ul>li>a:hover{
+	color: red;
+}
+
+nav>ul>li>a>span:hover{
+	color: red;
+}
+
+#ultimos5viajes, .espacio_to_nav{
+	margin-top: 100px;
+}
+
+section{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+}
+
+section, footer{
+	margin-left: 5%;
+  background-color: rgb(255, 240, 201);
+  width: 90%;
+  border-style: groove;
+  border-radius: 15px;
+  padding-bottom: 30px;
+  overflow: hidden;
+	box-shadow: 5px 5px 30px #888888;
+}
+
+
+section>article{
+
+}
+
+#centrarultimos5viajes > article{
+	width: 450px;
+	
+}
+
+.paracentrar>article{
+	width: 450px;
+}
+
+.ultimos10comentarios>.paracentrar>article>a{
+	text-align: left;
+}
+.ultimos10comentarios>.paracentrar>article>p{
+	text-align: right;
+}
+
+.ultimos10comentarios>div>article>.paracortar{
+	white-space: nowrap; 
+	overflow: hidden;
+	text-overflow: ellipsis;
+	/*
+	background-color: green;
+	border-style: solid;
+	*/
+	display: block;
+	width: 100%;
+	padding: 0px;
+}
+
+
+
+
+div{
+	width: 95%;
+	
+	overflow: hidden;
+	
+}
+
+.paracentrar{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.cortar{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	display: inline-block;
+	width: 100%;
+
+}
+
+
+article{
+	border-style: solid;
+	border-color: #C8C2B4;
+	border-radius: 0px 15px 50px 30px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	margin-left: 2%;
+  margin-right: 2%;
+	overflow: hidden;;
+}
+
+footer{
+	padding-top:  30px;
+	margin-top: 20px;
+}
+
+.ultimos10comentarios>div >article{	
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+fieldset{
+	border-style: none;
+	padding-top: 30px;
+	font-size: 40px;
+}
+
+#fechainicial, #fechafinal{
+	width: 40%;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+
+input{
+	margin-top: 15px;
+	margin-bottom: 30px;
+	padding: 10px;
+	
+}
+input:focus{
+
+	box-shadow: 0px 0px 10px #888888;
+}
+
+input:hover{
+	background-color: #D6CCCC;
 }
 
 
@@ -41,31 +355,53 @@ a > img{
 
 
 
+.fotossubidas{
+	width: 100px;
+	height: 100px;
+}
 
 @media (min-width: 480px) {
 	/*esto es para que el estilo de adapte, aqui metere los valores para los diseños que no son mobile*/
-
 	nav{
-
-		background-color: black;
-		text-align: center;
-		height: 70px;
-		margin: -10px;
-		padding-top: 35px;
-
+		display: inline-block;
+		width: 100%;
+		position: initial;	
 	}
 
-	nav a{
-		font-family: 'Oswald', sans-serif;
-		color: white;
-		text-decoration: none;
+	#ultimos5viajes, .espacio_to_nav{
+		margin-top: 20px;
+	}
+
+	nav>ul{
+		overflow: initial;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	nav>ul>li>a{
 		font-size: 25px;
 	}
 
-	nav a:hover{
-		color: red;
+	nav>ul>li>label>span{
+		display: none;
 	}
 
+	header>h1{
+		/*cambiar a hidden si o si*/
+		visibility: hidden;
+	}
+
+	nav>ul>li>a>span{
+		display: none;
+	}
+	
+	header{
+		position: absolute;
+	}
+
+
+	/*
 	header>h1{
 		color: white;
 		position: relative;
@@ -73,117 +409,104 @@ a > img{
 		left: 75px;
 	
 	}
+	*/
+}
+@media (min-width: 440px){
+	.descripcionfoto{
+		left: 3%;
+	}
+}
+@media (min-width: 449px){
+	.descripcionfoto{
+		left: 4%;
+	}
+}
+@media (min-width: 457px){
+	.descripcionfoto{
+		left: 5%;
+	}
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 467px){
+	.descripcionfoto{
+		left: 6%;
+	}
+}
+
+@media (min-width: 477px){
+	.descripcionfoto{
+		left: 7%;
+	}
+}
+
+@media (min-width: 498px){
+	.descripcionfoto{
+		left: 8%;
+	}
+}
+@media (min-width: 499px){
+	.descripcionfoto{
+		left: 9%;
+	}
+}
+
+@media (min-width: 511px){
+	.descripcionfoto{
+		left: 10%;
+	}
+}
+@media (min-width: 523px){
+	.descripcionfoto{
+		left: 11%;
+	}
+}
+
+
+@media (min-width: 537px){
+	.descripcionfoto{
+		left: 12%;
+	}
+}
+
+
+
+@media (min-width: 560px){
+	.descripcionfoto{
+		left: 13.5%;
+	}
+}
+
+
+@media (min-width: 600px){
+	.descripcionfoto{
+
+		left: 14.4%;
+	}
+
+	
+}
+
+
+
+
+/*o 960*/
+@media (min-width: 1200px) {
 	/*esto es para que el estilo de adapte, aqui metere los valores para los diseños que no son mobile*/
 	
 	header>h1{
 		color: white;
-		position: relative;
-		top: -80px;
-		left: 90px;
-	
-	}
-
-	section{
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-
-	}
-
-	section, footer{
-		margin-left: 5%;
-    background-color: rgb(255, 240, 201);
-    width: 90%;
-    border-style: groove;
-    border-radius: 15px;
-    padding-bottom: 30px;
-    overflow: hidden;
-		box-shadow: 5px 5px 30px #888888;
+		position: absolute;
+		visibility: initial;
 	}
 	
-
-	section>article{
-		width: 20em;
-		padding: 20em;
+	header{
+		position: absolute;
 	}
 
-	#centrarultimos5viajes > article{
-		width: 450px;
-		float: left;
-		margin-right: auto;
-		margin-left: auto;
+	nav>ul>li>a>span{
+		display: initial;
+		font-size: 20px;
 	}
 
-
-	
-	nav{
-		margin-bottom: 20px;
-	}
-
-	div{
-		width: 95%;
-		margin-left: auto;
-		margin-right: auto;
-		overflow: hidden;
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-	}
-
-	article{
-		border-style: solid;
-		border-color: #C8C2B4;
-		border-radius: 0px 15px 50px 30px;
-		padding-bottom: 20px;
-		margin-bottom: 20px;
-		margin-left: 20px;
-		padding-left: 5%;
-		padding-right: 5%;
-	}
-	
-	footer{
-		padding-top:  30px;
-		margin-top: 20px;
-	}
-
-	fieldset{
-		border-style: none;
-		padding-top: 30px;
-		font-size: 40px;
-	}
-	#fechainicial, #fechafinal{
-		width: 35%;
-		margin-left: 5px;
-		margin-right: 5px;
-	}
-
-	
-	input{
-		margin-top: 15px;
-		margin-bottom: 30px;
-		padding: 10px;
-		width:100%;
-	}
-	input:focus{
-	
-		border-style: 20px;
-		box-shadow: 0px 0px 10px #888888;
-	}
-
-	#loguearse, #buscarviaje{
-		width: 108%;
-	}
-	
-	img:hover{
-			-moz-user-select: none; 
-    -khtml-user-select: none; 
-    -webkit-user-select: none; 
-    -o-user-select: none; 
-
-	}
-	
 
 }

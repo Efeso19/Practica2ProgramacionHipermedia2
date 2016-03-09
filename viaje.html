@@ -4,30 +4,157 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Viaje</title>
 		<link rel="stylesheet" type="text/css" href="CSS/main.css" />
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	</head>
 	<body>
+		<!-- que opciones del menu muestro ahora? -->
 		<header>
-			<h1><img src="Imagenes/logotipo.png" height="64" width="64"> Vueling</h1>
+			
+			<img src="Imagenes/logotipo.png" height="40" width="40" alt="logo de la web"> <h1>Travell</h1>
 		</header>
 		<nav>
-			<a href="index.html">Inicio</a>
-			<a href="login.html">Login</a>
-			<a href="registro.html">Registrarse</a>
-			<a href="">Perfil</a>
-			<a href="">Logout</a>
-			<a href="buscar_viajes.html">Buscar viajes</a>
-			<a href="crear_viaje.html">Crear viaje</a>
+			<input type="checkbox" id="menu-trigger">
+			<ul>
+				<li><label for="menu-trigger"><span>&equiv;</span></label></li>
+				<li><a href="index.html"><i class="fa fa-home"></i> <span>Inicio</span></a></li> 
+				<li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login</span></a></li> 
+				<li><a href="registro.html"><i class="fa fa-plus"></i> <span>Registrarse</span></a></li> 
+				<li><a href=""><i class="fa fa-user"></i> <span>Perfil</span></a></li> 
+				<li><a href=""><i class="fa fa-sign-out"></i> <span>Logout</span></a><li> 
+				<li><a href="buscar_viajes.html"><i class="fa fa-search"></i> <span>Buscar viajes</span></a></li> 
+				<li><a href="crear_viaje.html"><i class="fa fa-plane"></i> <span>Crear viaje</span></a></li>	
+
+			</ul>
+			
 		</nav>
+		<section class="espacio_to_nav">
+			<h2>T&iacute;tulo del viaje</h2>
+			<br>
+			<div><b>Desde</b>: <time datetime="1995-05-06">1995/05/06</time><b> hasta: </b> <time datetime="1995-05-06">1995/05/21</time></div>
 
+			<p><b>Descripción</b>: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	</p>
+			
+			<b>valoraci&oacute;n</b>:<div class="star-rating">
+									<a>&#9733;</a>
+									<a>&#9733;</a>
+									<a>&#9733;</a>
+									<a>&#9733;</a>
+									<a>&#9733;</a>
+								</div>
+			
+			<a href="#">AutorDelviaje</a>
+		</section>
+		<br>
+		<section >	
+			<h2>Fotograf&iacute;as</h2>
+			<div id="paracentrar">
+				<article>
+					<h3>En los Pirineos</h3>
+					<br>
+					<img src="Imagenes/paisajePractica1.jpg" alt="foto del paisaje">
+					<br>
+					<p>Fecha de la publicación: <time datetime="1995-05-06">2016/02/03</time></p>
+					<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				</article>
+				<article>
+					<h3>En los Alpes</h3>
+					<br>
+					<img src="Imagenes/paisajePractica1.jpg" alt="foto del paisaje">
+					<br>
+					<p>Fecha de la publicación: <time datetime="1995-05-06">2015/02/01</time></p>
+					<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				</article>
+				<article>
+					<h3>En Andorra</h3>
+					<br>
+					<img src="Imagenes/paisajePractica1.jpg" alt="foto del paisaje">
+					<br>
+					<p>Fecha de la publicación: <time datetime="1995-05-06">1995/05/06</time></p>
+					<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				</article>
+			</div>	
+		</section>
+		<br>
+		<section class="ultimos10comentarios" id="cajaDeComentarios">
+			<h2>Comentarios</h2>
+			<div>
+				<article>
+					<h4>T&iacute;tulo del comentario</h4>
+					<em>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
+					<br>
+					<p>AutorDelComentario, <time datetime="2015-05-26T23:50">2012/06/08 12:45</time></p>
+				</article>
+				<article>
+					<h4>T&iacute;tulo del comentario</h4>
+					<em>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
+					<br>
+					<p>AutorDelComentario, <time datetime="2015-05-26T23:50">2014/11/18 12:45</time></p>
+				</article>
 
+			</div>		
 
+		</section>
+		<br>
+		<section>
+			<h2>¡Comenta!</h2>
+			<br>
+			<div class="paracentrar">
+				
+				
+				<form>
+					<label for="titulodelcomentariocreado">T&iacute;tulo del comentario</label>
+					<br>
 
+					<input type="text" id="titulodelcomentariocreado" placeholder="Título" maxlength="50">
+					<br>
+					<label for="comentariocreado">Comentario</label>
+					<br>
+					<textarea id="comentariocreado" maxlength="500" placeholder="Máximo 500 caractéres" rows="4" cols="50" required></textarea>
+					<input type="submit" value="Comentar">
+				</form>
 
+			</div>
 
+		</section>
+	
 		<footer>
-			2016 &copy; <a href="">Contacto</a> | <a href="acerca.html">Acerca de nosotros</a>
+			<time datetime="2016">2016</time> &copy; <a href="">Contacto</a> | <a href="acerca.html">Sobre nosotros</a>
 		</footer>
 		
 	</body>
+	
 
 </html>

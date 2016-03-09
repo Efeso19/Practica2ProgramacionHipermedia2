@@ -1,43 +1,69 @@
 <!DOCTYPE html>
-<<html lang="es">
+<html lang="es">
 	<head>
-		<meta http-equiv="Content-Type"content="text/html"; charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Acerca</title>
 		<link rel="stylesheet" type="text/css" href="CSS/main.css" />
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	</head>
 	<body>
+	<!-- que opciones del menu muestro ahora? -->
 		<header>
-				<h1><img src="Imagenes/logotipo.png" height="64" width="64"> Vueling</h1>
+			<img src="Imagenes/logotipo.png" height="40" width="40" alt="logo de la web"> <h1>Travell</h1>
 		</header>
 		<nav>
-			<a href="index.html">Inicio</a>
-			<a href="login.html">Login</a>
-			<a href="registro.html">Registrarse</a>
-			<a href="">Perfil</a>
-			<a href="">Logout</a>
-			<a href="buscar_viajes.html">Buscar viajes</a>
-			<a href="crear_viaje.html">Crear viaje</a>
+			<input type="checkbox" id="menu-trigger">
+			<ul>
+				<li><label for="menu-trigger"><span>&equiv;</span></label></li>
+				<li><a href="index.html"><i class="fa fa-home"></i> <span>Inicio</span></a></li> 
+				<li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login</span></a></li> 
+				<li><a href="registro.html"><i class="fa fa-plus"></i> <span>Registrarse</span></a></li> 
+				<li><a href=""><i class="fa fa-user"></i> <span>Perfil</span></a></li> 
+				<li><a href=""><i class="fa fa-sign-out"></i> <span>Logout</span></a></li> 
+				<li><a href="buscar_viajes.html"><i class="fa fa-search"></i> <span>Buscar viajes</span></a></li> 
+				<li><a href="crear_viaje.html"><i class="fa fa-plane"></i> <span>Crear viaje</span></a></li>	
+			</ul>
 		</nav>
-		<p>	
-			La práctica consiste en implementar mediante HTML5 y CSS3 un sitio web ​ responsive​  que servirá a los usuarios para publicar información relativa a viajes realizados. Para poder publicar información de un viaje, el usuario tendrá que estar registrado. Un usuario registrado podrá dejar comentarios sobre los viajes de los usuarios. El sitio permitirá buscar viajes por distintos criterios.
-		</p>
+		<section class="espacio_to_nav">
+			<h2>Sobre nosotros</h2>
+			<div>
+				<article>
+					<h3>Descripci&oacute;n</h3>	
+					La pr&aacute;ctica consiste en implementar mediante HTML5 y CSS3 un sitio web ​ responsive​  que servir&aacute; a los usuarios para publicar informaci&oacute;n relativa a viajes realizados. Para poder publicar informaci&oacute;n de un viaje, el usuario tendr&aacute; que estar registrado. Un usuario registrado podr&aacute; dejar comentarios sobre los viajes de los usuarios. El sitio permitir&aacute; buscar viajes por distintos criterios.
+				</article>
+				<article>
+					<h3>Informaci&oacute;n</h3>
+					P&aacute;gina realizada por Alfonso Jos&eacute; Rodr&iacute;guez G&oacutemez para la asignatura <a href="http://cv1.cpd.ua.es/ConsPlanesEstudio/cvFichaAsi.asp?wCodEst=C205&wcodasi=21025&wLengua=C&scaca=2013-14">Programaci&oacute;n Hipermedia 2</a> correspondiente al tercer curso de <a href="http://cvnet.cpd.ua.es/webcvnet/planestudio/planestudiond.aspx?plan=C205">Ingenier&iacute;a Multimedia</a> en la <a href="www.ua.es">Universidad de Alicante</a>
+					<br>
+					DNI: 48686275J
+					<br>
+					Grupo 3 de pr&aacute;cticas
+					<br>
+					Email: ajrg6@gcloud.ua.es	
+				</article>		
+		</div>
+		</section>
+		<section>
+			<h2>Documentacion</h2>
+			<article>
+				<h3>Implemetaciones</h3>	
+				En la p&aacute;gina buscar_viajes.html he implementado un input de tipo rango para poder buscar los viajes según su valoraci&oacute;n. Este input no tiene que llevar el elemento "required" ya que el valor por defecto es 1, pudiendolo cambiar hasta 5 de entero a entero.
+				En los elementos textarea he puesto el atributo "required" ya que la pr&aacute;n actica enuncia: que ningún campo se puede dejar en blanco. 
+				He implementado 3 formas distintas del men&uacute; de navegaci&oacute;n.
+				<ol>
+					<li>Men&uacute; hamburguesa. Para dispositivos m&oacute;viles.</li>
+					<li>Men&uacute; tablet. Para dispositivos como tablets o port&aacute;tiles con poca resoluci&oacute;n de pantalla.</li>
+					<li>Men&uacute; normal. Dise&ntilde;ado para ordenadores de sobremesa o dispositivos con una gran resoluci&oacute;n de pantalla.</li>
+				</ol>
+				Otro problema que me he encontrado es la validaci&oacute;n, ya que en diferentes apartados  de la pr&aacute; he usado input type="date" y no todos los navegadores lo soportan.
 
-		</p>
-			Página realizada por Alfonso José Rodríguez Gómez para la asignatura <a href="http://cv1.cpd.ua.es/ConsPlanesEstudio/cvFichaAsi.asp?wCodEst=C205&wcodasi=21025&wLengua=C&scaca=2013-14">Programación Hipermedia 2</a> correspondiente al tercer curso de <a href="http://cvnet.cpd.ua.es/webcvnet/planestudio/planestudiond.aspx?plan=C205">Ingeniería Multimedia</a> en la <a href="www.ua.es">Universidad de Alicante</a>
-		</p>
-		DNI: 48686275J
-		<br>
-		Grupo 3 de prácticas
-		<br>
-		Email: ajrg6@gcloud.ua.es
+			</article>
+			
 
-
-
-		<footer>
-			2016 &copy; <a href="">Contacto</a> | <a href="acerca.html">Acerca de nosotros</a>
-		</footer>
+		</section>
+	<footer>
+		<time datetime="2016">2016</time> &copy; <a href="">Contacto</a> | <a href="acerca.html">Sobre nosotros</a>
+	</footer>
 	</body>
-	
-
-
 </html>

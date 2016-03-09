@@ -4,37 +4,44 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Login</title>
 		<link rel="stylesheet" type="text/css" href="CSS/main.css" />
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans|Oswald' rel='stylesheet' type='text/css'>		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	</head>
 	<body>
-		<header>
-			<br>
-			<img src="Imagenes/logotipo.png" height="64" width="64"> <h1>Travell</h1>
-		</header>
 
+		<header>
+			
+			<img src="Imagenes/logotipo.png" height="40" width="40" alt="logo de la web"> <h1>Travell</h1>
+		</header>
 		<nav>
-			<a href="index.html">Inicio</a> |
-			<a href="login.html">Login</a> |
-			<a href="registro.html">Registrarse</a> |
-			<a href="">Perfil</a> |
-			<a href="">Logout</a> |
-			<a href="buscar_viajes.html">Buscar viajes</a> |
-			<a href="crear_viaje.html">Crear viaje</a> 
+			<input type="checkbox" id="menu-trigger">
+			<ul>
+				<li><label for="menu-trigger"><span>&equiv;</span></label></li>
+				<li><a href="index.html"><i class="fa fa-home"></i> <span>Inicio</span></a></li> 
+				<li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login</span></a></li> 
+				<li><a href="registro.html"><i class="fa fa-plus"></i> <span>Registrarse</span></a></li> 
+				<li><a href=""><i class="fa fa-user"></i> <span>Perfil</span></a></li> 
+				<li><a href=""><i class="fa fa-sign-out"></i> <span>Logout</span></a></li> 
+				<li><a href="buscar_viajes.html"><i class="fa fa-search"></i> <span>Buscar viajes</span></a></li> 
+				<li><a href="crear_viaje.html"><i class="fa fa-plane"></i> <span>Crear viaje</span></a></li>
+
+			</ul>
+			
 		</nav>
-		<section>
-			<form action="">
-				<fieldset>Login</fieldset>
+		<section class="espacio_to_nav">
+			<h2>Login</h2>
+			<form action="indexlogueado.html" method="POST">
+				
 				<label for="login">Usuario</label>			
-				<input type="text" id="login" placeholder="Usuario" required autofocus pattern="[a-zA-Z][a-zA-Z0-9]">
+				<input type="text" id="login" placeholder="Usuario" required autofocus pattern="[a-zA-Z][a-zA-Z0-9]{0,15}">
 				<br>
-				<label for="pass">Contraseña</label>
+				<label for="pass">Contrase&ntilde;a</label>
 				<input type="password" id="pass" placeholder="*******" required>
 				
 				<br>
 				<input type="submit" id ="loguearse" value="Iniciar sesión">
 				<br>
-				<a href="registro.html">Registrarse</a> |
-				<a href="">¿Olvidó su contraseña?</a>	
+				<a href="registro.html">Registrarse</a> 
+				<a href="">¿Olvid&oacute; su contrase&ntilde;a?</a>	
 			</form>
 			
 
@@ -48,8 +55,9 @@
 
 
 
+		
 		<footer>
-			2016 &copy; <a href="">Contacto</a> | <a href="acerca.html">Acerca de nosotros</a>
+			<time datetime="2016">2016</time> &copy; <a href="">Contacto</a> | <a href="acerca.html">Sobre nosotros</a>
 		</footer>
 		
 	</body>
