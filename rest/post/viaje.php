@@ -53,7 +53,6 @@ else
       mysqli_query($link, "BEGIN");
       $mysql  = 'insert into viaje(NOMBRE,DESCRIPCION,FECHA_INICIO, FECHA_FIN,VALORACION,LOGIN) ';
       $mysql .= 'values("' . $nombre . '","' . $descripcion . '",CONVERT("' . $fi . '",DATE),CONVERT("' . $ff . '",DATE),' . $valoracion . ',"' . $login . '")';
-
       if( mysqli_query($link,$mysql) )
       { // Se han insertado los datos de la ruta.
         // Se saca el id de la ruta

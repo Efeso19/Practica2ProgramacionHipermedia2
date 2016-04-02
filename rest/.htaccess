@@ -2,7 +2,7 @@ Options +FollowSymLinks
 RewriteEngine On
 
 # Ruta completa desde htdocs hasta el interior de la carpeta rest
-RewriteBase /Practica2ProgramacionHipermedia2/material/rest/
+RewriteBase /Practica2ProgramacionHipermedia2/rest/
 
 # Con el valor 307 en las reglas de abajo se redirigen todas las
 # peticiones, tanto las peticiones GET como las POST

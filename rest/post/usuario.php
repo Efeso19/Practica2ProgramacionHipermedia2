@@ -58,7 +58,7 @@ if( !( isset($PARAMS['login']) ) )
 }
 
 // Se pillan el usuario y el login:
-$usu    = sanatize($PARAMS['login']);
+$login  = sanatize($PARAMS['login']);
 $pwd    = sanatize($PARAMS['pwd']);
 $pwd2   = sanatize($PARAMS['pwd2']);
 $nombre = sanatize($PARAMS['nombre']);
@@ -72,7 +72,7 @@ if( $pwd != $pwd2 ) // Contraseñas distintas
   exit();
 }
 
-if( $usu == '' )
+if( $login == '' )
 {
   $RESPONSE_CODE = 400;
   $R = array('RESULTADO' => 'error', 'CODIGO' => '400', 'DESCRIPCION' => 'login no correcto');
@@ -83,43 +83,62 @@ else
     // ******** INICIO DE TRANSACCION **********
     mysqli_query($link, 'BEGIN');
 
-    if(!comprobarExistencia($usu))
+    if(!comprobarExistencia($login))
     { // El usuario no existe, se da de alta
       $mysql  = 'insert into usuario(LOGIN,PASSWORD,NOMBRE,EMAIL) values("';
-      $mysql .= $usu . '","' . $pwd . '","' . $nombre . '","' . $email . '")';
-    } // if(!comprobarExistencia($usu))
+      $mysql .= $login . '","' . $pwd . '","' . $nombre . '","' . $email . '")';
+    } // if(!comprobarExistencia($login))
     else
     { // El usuario existe, se modifican sus datos
-      $mysql  = 'update usuario set ';
-      $mysql .= 'NOMBRE="' . $nombre . '"';
-      $mysql .= ', EMAIL="' . $email . '"';
-      if( strlen($pwd) > 1 )
-        $mysql .= ', PASSWORD="' . $pwd . '"';
-      $mysql .= ' where LOGIN="' . $usu .'"';
-    }
-    // Se ejecuta el sql
-    if( mysqli_query( $link, $mysql ) )
-      $R = array('RESULTADO' => 'ok', 'CODIGO' => '200', 'LOGIN' => $usu, 'FOTO' => '');
-    else
-      $R = array('RESULTADO' => 'error', 'CODIGO' => '500', 'DESCRIPCION' => 'No se ha podido hacer el registro');
+      $clave  = sanatize($PARAMS['clave']);
 
-    // SI HAY FOTO, HAY QUE COPIARLA
-    if( isset($_FILES['foto']) && count($_FILES['foto']['name']) == 1 )
-    {
-      // ===================
-      // HAY FOTO
-      // ===================
-      $ext = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION); // extensión del fichero
-      $uploadfile = $uploaddir_fotos_usu . $usu . '.' . $ext; // path fichero destino
-      if(move_uploaded_file($_FILES['foto']['tmp_name'], $uploadfile)) // se sube el fichero
+      if( !comprobarSesion($login,$clave) )
+        $R = array('RESULTADO' => 'ok', 'CODIGO' => '200', 'DESCRIPCION' => 'Tiempo de sesión agotado.');
+      else
       {
-        // Se ha subido la foto correctamente. Se actualiza el campo FOTO en la BD:
-        $mysql ='update usuario set FOTO="' . $usu . '.' . $ext . '" where LOGIN="' . $usu .'"';
-        if( mysqli_query( $link, $mysql ) )
-          $R['foto'] = $usu . '.' . $ext;
+        $mysql  = 'update usuario set ';
+        $mysql .= 'NOMBRE="' . $nombre . '"';
+        $mysql .= ', EMAIL="' . $email . '"';
+        if( strlen($pwd) > 1 )
+          $mysql .= ', PASSWORD="' . $pwd . '"';
+        $mysql .= ' where LOGIN="' . $login .'"';
       }
-    } // if( count($_FILES['foto']['name']) == 1)
+    }
+    if( count($R) == 0 )
+    {
+      // Se ejecuta el sql
+      if( mysqli_query( $link, $mysql ) )
+        $R = array('RESULTADO' => 'ok', 'CODIGO' => '200', 'LOGIN' => $login, 'FOTO' => '');
+      else
+        $R = array('RESULTADO' => 'error', 'CODIGO' => '500', 'DESCRIPCION' => 'No se ha podido hacer el registro');
 
+      // SI HAY FOTO, HAY QUE COPIARLA
+      if( isset($_FILES['foto']) && count($_FILES['foto']['name']) == 1 )
+      {
+        // ===================
+        // HAY FOTO
+        // ===================
+        $ext = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION); // extensión del fichero
+        $uploadfile = $uploaddir_fotos_usu . $login . '.' . $ext; // path fichero destino
+        if(move_uploaded_file($_FILES['foto']['tmp_name'], $uploadfile)) // se sube el fichero
+        {
+          // Se ha subido la foto correctamente. Se actualiza el campo FOTO en la BD:
+          $mysql ='update usuario set FOTO="' . $login . '.' . $ext . '" where LOGIN="' . $login .'"';
+          if( mysqli_query( $link, $mysql ) )
+            $R['foto'] = $login . '.' . $ext;
+        }
+      } // if( count($_FILES['foto']['name']) == 1)
+      else
+      {
+        $mysql = 'select FOTO from usuario where LOGIN="' . $login . '"';
+        if( $res = mysqli_query($link,$mysql) )
+        {
+          $row = mysqli_fetch_assoc($res);
+          $R['foto'] = $row['FOTO'];
+        }
+      }
+
+    } // if( count($R) == 0 )
 
     // ******** FIN DE TRANSACCION **********
     mysqli_query($link, "COMMIT");
