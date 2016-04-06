@@ -2,6 +2,14 @@ window.onload=comentarios();
 
 var mostrarC="";
 
+function recargar(){
+	alert("recargando");
+	var vacio="";
+	document.getElementById("ultimos10comentariosID").innerHTML = vacio;
+	comentarios();
+			
+}
+
 function comentario(id){	//GUARDA idruta EN WEBSTORAGE PARA RECUPERARLO EN ruta.html
 
 	localStorage.setItem("idcomentario", id);
@@ -17,7 +25,7 @@ function viaje(id){	//GUARDA idruta EN WEBSTORAGE PARA RECUPERARLO EN ruta.html
 }
 
 function comentarios(){
-
+	//alert("he entrado a la funcion comentarios");
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.onload = function(){
@@ -33,34 +41,24 @@ function comentarios(){
 			TEXTO
 			TITULO
 		*/
-		/*
-		<article>
-					<a href="viaje.html#cajaDeComentarios"><h4>T&iacute;tulo del comentario</h4></a>
-					<em>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
-					<br>
-					<p>AutorDelComentario, <time datetime="2015-05-26T23:50">2015/05/26 22:55</time>
-					</p>
-					<span class="cortar">
-					 TituloDelViaje esto es una prueba para cortar el titulo del comentario y poner los ... al final de la linea.
-					</span>
-				</article>
-		*/
-		//Falta dar formato a la fecha
+		//falta dar formato a la fecha
+		mostarC="";
 		var i=0;
 		for(i=0; i<res.FILAS.length;i++){
-			mostrarC+="<article><a href='javascript:comentario("+res.FILAS[i].ID_VIAJE+")'><h4>"+res.FILAS[i].TITULO+"</h4></a><em>"+res.FILAS[i].TEXTO+"</em><br><p>"+res.FILAS[i].LOGIN+", <time datetime='"+res.FILAS[i].FECHAHORA+"'>"+res.FILAS[i].FECHAHORA+"</time></p><span class='cortar'><a href='javascript:viaje("+res.FILAS[i].ID_VIAJE+");''>"+res.FILAS[i].NOMBRE_VIAJE+"</a></span></article>";
+			var aux=res.FILAS[i].FECHAHORA;
+			var parts = aux.split(' ');
+			var parts2 = parts[0].split('-');
+			var parts3 = parts[1].split(':')
+
+			mostrarC+="<article><a href='javascript:comentario("+res.FILAS[i].ID_VIAJE+")'><h4>"+res.FILAS[i].TITULO+"</h4></a><em>"+res.FILAS[i].TEXTO+"</em><br><p>"+res.FILAS[i].LOGIN+", <time datetime='"+res.FILAS[i].FECHAHORA+"'>";
+			mostrarC+=""+parts2[2]+"/"+parts2[1]+"/"+parts2[0]+", "+parts3[0]+":"+parts3[1]+"</time></p><span class='cortar'><a href='javascript:viaje("+res.FILAS[i].ID_VIAJE+");''>"+res.FILAS[i].NOMBRE_VIAJE+"</a></span></article>";
+			mostarC="";
 		}
 
 
 
 		document.getElementById("ultimos10comentariosID").innerHTML=mostrarC;
-
+		delete xmlhttp;
 	}
 
 	xmlhttp.onreadystatechange = procesarCambio;
@@ -95,3 +93,4 @@ function comentarios(){
 	return false;
 
 }
+

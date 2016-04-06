@@ -30,10 +30,12 @@ function viajes(){
 			NFOTOS
 			NCOMENTARIOS
 		*/
-	
 		var i=0;
 		//Falta dar formato a la fecha
 		for(i=0; i<res.FILAS.length;i++){
+			var aux=res.FILAS[i].FECHA_INICIO;
+			var parts = aux.split(' ');
+			var parts2= parts[0].split('-');
 			mostrar+="<article><a href='javascript:viaje("+res.FILAS[i].ID+");'><h3>"+res.FILAS[i].NOMBRE+"</h3></a><img src='fotos/"+res.FILAS[i].ID+"/"+res.FILAS[i].FOTO+"' alt='"+res.FILAS[i].DESCRIPCION_FOTO+"'/><div class='descripcionfoto'>"+res.FILAS[i].DESCRIPCION+" <a href='javascript:viaje("+res.FILAS[i].ID+");'>Ver más</a></div>Valoraci&oacute;n:<div class='star-rating'>"
 			for(j=0; j<res.FILAS[i].VALORACION; j++){
 				mostrar+="<a class='pintada'>&#9733;</a>"
@@ -41,11 +43,13 @@ function viajes(){
 			for(j=0;j<(5-res.FILAS[i].VALORACION); j++){
 				mostrar+="<a>&#9733;</a>"
 			}
-			mostrar+="</div>Fecha de creaci&oacute;n del viaje: <time datetime='"+res.FILAS[i].FECHA_INICIO+"'>"+res.FILAS[i].FECHA_INICIO+"</time><br>"+res.FILAS[i].LOGIN+"</article>";
+			mostrar+="</div>Fecha de creaci&oacute;n del viaje: <time datetime='"+res.FILAS[i].FECHA_INICIO+"'>";
+			mostrar+=""+parts2[0]+"/"+parts2[1]+"/"+parts2[2]+"</time><br>"+res.FILAS[i].LOGIN+"</article>";
 		}
 		
 		
 		document.getElementById("centrarultimos5viajes").innerHTML=mostrar;
+		
 	}
 
 	xmlhttp.onreadystatechange = procesarCambio;
