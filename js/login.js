@@ -1,45 +1,55 @@
-//JAVASCRIPT//
-//ENVIO DE FORMULARIO DE LOGIN
 
-function envio(formulario){
-
-	var form = new FormData(formulario);	//DEFINICION DEL FormData
-	var xrqst = new XMLHttpRequest();		//DEFINICION DE XMLHttpRequest
-
-	alert(formulario[0].value+formulario[1].value);
-	form.append(login, formulario[0].value);
-	form.append(key, formulario[1].value);
-
+function crearObjAjax(){
+	var xmlhttp;
+	if(window.XMLHttpRequest){
+		xmlhttp = new XMLHttpRequest();
+	}else if(window.ActiveXObject){
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	return xmlhttp;
+}
 
 
-	xrqst.onload = function(){
-		var res = eval( '('+xrqst.responseText+')'); //PROCESAMIENTO JSON
-		//res.resultado
-		//res.clave
-		//res.login
-		//res.nombre
-		console.log(res);
-		if(res.resultado == "ok"){	//EL USUARIO ES CORRECTO, ESTABLECER PARES Y REDIRECCION
-			
-			localStorage.setItem('logged', 'true');	//SE ESTABLECEN TODOS PARES
-			localStorage.setItem('key', res.clave);
-			localStorage.setItem('login', res.login);
-			localStorage.setItem('nombre', res.nombre);
-			alert("todo guay");
-		
-		
+function envio(form){
+	var fd=new FormData(form);
+	var objajax =  new crearObjAjax();
+	var url="rest/login/";
+	
+	/*
+	var login = document.getElementById("login").value;
+	var pass = document.getElementById("pass").value;
+	*/
+
+	//var args = "l=" + login + "&p=" + pass;
+	//args + = "&v=" + (new Date()).getTime();
+
+
+	objajax.onreadystatechange = procesarCambio;
+	objajax.open("POST", url, true);
+
+	//objajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	objajax.send(fd);
+
+
+	function procesarCambio(){
+
+		if(objajax.readyState == 4){
+			if(objajax.status == 200){
+				var res = JSON.parse(objajax.responseText);				
+				console.log(res);
+				sessionStorage.setItem('logged', 'true');	//SE ESTABLECEN TODOS PARES
+				sessionStorage.setItem('pass', res.CLAVE);
+				sessionStorage.setItem('login', res.LOGIN);
+				sessionStorage.setItem('texto', res);//almacenamos todo el JSON
+				location.replace("index.html");
+			}else{
+				alert("Hubo algun problema"+objajax.status);
+			}
 		}
-		else{	//EL USUARIO NO ES CORRECTO, PINTAR EFECTO CSS
-				alert(res.login);
-				document.getElementById('login').style.backgroundColor="#FCC";
-				
 
-		}
-		
 	}
 
-	xrqst.open('POST', 'rest/login/', true);	//DEFINICION DE LA PETICION HTML (ASYNC)
-	xrqst.send(form);	//ENVIO DEL FORMULARIO AL SERVIDOR
-
 	return false;
+
 }
+

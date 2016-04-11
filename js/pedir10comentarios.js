@@ -3,8 +3,8 @@ window.onload=comentarios();
 var mostrarC="";
 
 function recargar(){
-	alert("recargando");
 	var vacio="";
+	
 	document.getElementById("ultimos10comentariosID").innerHTML = vacio;
 	comentarios();
 			
@@ -27,11 +27,10 @@ function viaje(id){	//GUARDA idruta EN WEBSTORAGE PARA RECUPERARLO EN ruta.html
 function comentarios(){
 	//alert("he entrado a la funcion comentarios");
 	var xmlhttp = new XMLHttpRequest();
-
 	xmlhttp.onload = function(){
 
 		var res=JSON.parse(xmlhttp.responseText);
-		console.log(res);
+		//console.log(res);
 		/*Los atributos de la respuesta que forman parte del array
 			ID
 			FECHAHORA
@@ -42,7 +41,7 @@ function comentarios(){
 			TITULO
 		*/
 		//falta dar formato a la fecha
-		mostarC="";
+		mostrarC="";
 		var i=0;
 		for(i=0; i<res.FILAS.length;i++){
 			var aux=res.FILAS[i].FECHAHORA;
