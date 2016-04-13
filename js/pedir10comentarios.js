@@ -1,5 +1,9 @@
 window.onload=comentarios();
 
+var foo = [];
+for (var i = 1; i <= 10; i++) {
+   foo.push(i);
+}
 var mostrarC="";
 
 function recargar(){
@@ -48,14 +52,16 @@ function comentarios(){
 			var parts = aux.split(' ');
 			var parts2 = parts[0].split('-');
 			var parts3 = parts[1].split(':')
-
-			mostrarC+="<article><a href='javascript:comentario("+res.FILAS[i].ID_VIAJE+")'><h4>"+res.FILAS[i].TITULO+"</h4></a><em>"+res.FILAS[i].TEXTO+"</em><br><p>"+res.FILAS[i].LOGIN+", <time datetime='"+res.FILAS[i].FECHAHORA+"'>";
+			
+			uno = res.FILAS[i].ID_VIAJE;
+			dos = res.FILAS[i].ID;
+//alert(res.FILAS[i].ID_VIAJE+","+res.FILAS[i].ID+","+i);
+			mostrarC+="<article><a href='javascript:pasarvariable("+res.FILAS[i].ID_VIAJE+", "+res.FILAS[i].ID+")'><h4>"+res.FILAS[i].TITULO+"</h4></a><em>"+res.FILAS[i].TEXTO+"</em><br><p>"+res.FILAS[i].LOGIN+", <time datetime='"+res.FILAS[i].FECHAHORA+"'>";
+			
 			mostrarC+=""+parts2[2]+"/"+parts2[1]+"/"+parts2[0]+", "+parts3[0]+":"+parts3[1]+"</time></p><span class='cortar'><a href='javascript:viaje("+res.FILAS[i].ID_VIAJE+");''>"+res.FILAS[i].NOMBRE_VIAJE+"</a></span></article>";
 			mostarC="";
 		}
-
-
-
+		//alert(mostrarC);
 		document.getElementById("ultimos10comentariosID").innerHTML=mostrarC;
 		delete xmlhttp;
 	}
@@ -79,17 +85,22 @@ function comentarios(){
 		if(xmlhttp.readyState == 4){
 			if(xmlhttp.status == 200){
 				
-
 			}
 			else{
-
-				alert("Hubo un problema con los datos devueltos");
-				
+				alert("Hubo un problema con los datos devueltos");	
 			}
 		}
 	}
 	
 	return false;
 
+}
+
+function pasarvariable(valor, comen){
+	//alert("he ntrado "+valor+ " "+comen);
+	location.href="viaje.html?id="+valor+"&comen="+comen+"";
+	localStorage.setItem("idviaje", valor);
+	localStorage.setItem("idcomentario", comen);
+	return location.href;
 }
 

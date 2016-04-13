@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	</head>
 	<body>
+
 		<!-- que opciones del menu muestro ahora? -->
 		<header>
 			
@@ -15,6 +16,8 @@
 			
 			<script type="text/javascript" src="js/pedirfotos.js"></script>
 			
+			<script type="text/javascript" src="js/pedirComentarios.js" async defer></script>
+
 			<img src="Imagenes/logotipo.png" height="40" width="40" alt="logo de la web"> <h1>Travell</h1>
 		</header>
 				<nav id="navegacion">
@@ -32,9 +35,13 @@
 			-->
 		</nav>
 		<script type="text/javascript" src="js/web.js"></script>
-
+		<article id="mensajeComentarioOk">
+			Tu comentario ha sido guardado con &eacute;xito!
+			<button >Cerrar</button>
+		</article>
 		
 		<section class="espacio_to_nav" id="idParaImprimirElViaje">
+
 			<!--
 			<h2>T&iacute;tulo del viaje</h2>
 			<br>
@@ -109,7 +116,8 @@
 		<br>
 		<section class="ultimos10comentarios" id="cajaDeComentarios">
 			<h2>Comentarios</h2>
-			<div>
+			<div id="ParaImprimirLosComentarios">
+				<!--
 				<article>
 					<h4>T&iacute;tulo del comentario</h4>
 					<em>
@@ -134,15 +142,16 @@
 					<br>
 					<p>AutorDelComentario, <time datetime="2015-05-26T23:50">2014/11/18 12:45</time></p>
 				</article>
-
+				-->
 			</div>		
 
 		</section>
 		<br>
-		<section>
+		<section id="mostrarCajadecomentarios">
+			<!--
 			<h2>¡Comenta!</h2>
 			<br>
-			<div class="paracentrar">
+			<div class="paracentrar" >
 				
 				
 				<form>
@@ -158,7 +167,7 @@
 				</form>
 
 			</div>
-
+-->
 		</section>
 	
 		<footer>

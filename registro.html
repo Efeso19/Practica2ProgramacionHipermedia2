@@ -27,41 +27,50 @@
 			</ul>
 			-->
 		</nav>
-		<script type="text/javascript" src="js/web.js"></script>
+		<script type="text/javascript" src="js/webregis.js" async defer></script>
+		<script type="text/javascript" src="js/registro.js" async defer></script>
+
 
 		<section class="espacio_to_nav">
 			<h2>Registrarse</h2>
-			<form action="GET">
+			<form name="regisform" id="regisform" onsubmit="registrarse(this)">
 				
-				<label for="nombreusuario">Nombre de usuario:</label>
+				<label for="usu">Nombre de usuario:</label>
 				<br>
-				<input type="text" id="nombreusuario" placeholder="Usuario" required autofocus pattern="[a-zA-Z0-9]{5,20}" maxlength="20">
+				<input type="text" id="usu" name="usu" placeholder="Usuario" required autofocus pattern="[a-zA-Z0-9]{5,20}" maxlength="20">
+				<p id="regisok"></p>
 				<!-- En el usuario he de preguntar cual es el minimo de caracteres -->
 				<br>
-				<label for="password1">Contrase&ntilde;a:</label>
+				<label for="pwd">Contrase&ntilde;a:</label>
 				<br>
-				<input type="password" id="password1" placeholder="*******" required pattern="[a-zA-Z][a-zA-Z0-9_-]{5,20}" maxlength="20">
+				<input type="password" id="pwd" name="pwd" placeholder="*******" required pattern="[a-zA-Z][a-zA-Z0-9_-]{5,20}" maxlength="20">
+				<div id='msgpwd'>Las contrase&ntilde;as no coindicen<br></div>
 				<!-- En el password he de preguntar cual es el minimo de caracteres -->
 				<br>
-				<label for="password2">Repetir contrase&ntilde;a:</label>
+				<label for="pwd2">Repetir contrase&ntilde;a:</label>
 				<br>
-				<input type="password" id="password2" placeholder="*******" required pattern="[a-zA-Z][a-zA-Z0-9_-]{5,20}" maxlength="20">
+				<input type="password" id="pwd2" name="pwd2" placeholder="*******" required pattern="[a-zA-Z][a-zA-Z0-9_-]{5,20}" maxlength="20">
 				<!-- En el password he de preguntar cual es el minimo de caracteres -->
 				<!--  -->
 				<br>
-				<label for="nombre_completo">Nombre completo:</label>
+				<label for="nombre">Nombre completo:</label>
 				<br>
-				<input type="text" id="nombre_completo" placeholder="Nombre completo" required>
+				<input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
 				<br>
-				<label for="correoelectronico">Email:</label>
+				<label for="email">Email:</label>
 				<br>
-				<input type="email" id="correoelectronico" placeholder="Email" required>
+				<input type="email" id="email" name="email" placeholder="Email" required>
 				<br>
-				<label for="avatarusuario">Foto:</label>
+				<label for="foto">Foto:</label>
 				<br>
-				<input type="file" id="avatarusuario">
+				<input type="file" id="foto" name="foto" onchange="mostrarFotoM()">
+				<div id="avatar">
+				<img src="" alt="" id="mostrarFoto" width="100" height="100">
 				<br>
-				<input type="submit" id ="regristrarse" value="Registrarse">
+				<input type="button" id="eliminar" name="eliminar" onclick="eliminarFoto()" value="Eliminar foto">
+				
+				</div>
+				<input type="submit" id ="regristrarsebutton" value="Registrarse" >
 			</form>
 		</section>
 		<footer>

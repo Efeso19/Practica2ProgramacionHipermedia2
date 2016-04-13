@@ -42,6 +42,7 @@ function pedirInfoViaje(){
 		}
 
 		*/
+		
 		document.getElementById("paracentrar").innerHTML=mostrarfotos;
 
 
