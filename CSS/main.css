@@ -584,17 +584,21 @@ input:hover{
 
 }
 
-#msgpwd, #fotomsg{
+#msgpwd, #fotomsg, #msglogin{
 	display: none;
 	background-color: red;
 	
 }
 
-#avatar, #ocultado{
+#avatar, #ocultado, #logindisponible{
 	
 	display: none;
 
 	
+}
+
+#logindisponible{
+	background-color: green;
 }
 
 #min, #max{

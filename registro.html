@@ -40,7 +40,9 @@
 				
 				<label for="usu">Nombre de usuario:</label>
 				<br>
-				<input type="text" id="usu" name="login" placeholder="Usuario" required autofocus pattern="[a-zA-Z0-9]{5,20}" maxlength="20" onchange="">
+				<input type="text" id="usu" name="login" placeholder="Usuario" required autofocus pattern="[a-zA-Z0-9]{5,20}" maxlength="20" onchange="validarUsu();">
+				<div id='msglogin'><br>No est&aacute; disponible<br></div>
+				<div id='logindisponible'><br>Est&aacute; disponible<br></div>
 				<br>
 				<p id="regisok">Usted se ha registrado correctamente. Redirigiendo.<br><input type='button' value='Cerrar' onclick='ToLogin();'/><br></p>
 				<p id="modok">Se han cambiado los datos correctamente. Redirigiendo.<br><input type='button' value='Cerrar' onclick='ToPerfil();'/><br></p>

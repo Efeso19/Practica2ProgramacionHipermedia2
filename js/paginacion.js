@@ -49,6 +49,7 @@ function buscar(){
 			url+="d="+desc+"&";
 		}
 	}
+	
 	if(fechaini!=null){
 		url+="fi="+fechafin+"&";
 	}

@@ -197,21 +197,33 @@ function ToPerfil(){
 }
 
 function validarUsu(){
-
+	//document.getElementById("msglogin").style.display="none";
+	//document.getElementById("logindisponible").style.display="none";
 	//alert(document.getElementById("usu").value);
 	var fd = new FormData();
 	var xmlhttp = new XMLHttpRequest();
 	var url="rest/login/"+document.getElementById("usu").value;
 
+
 	xmlhttp.onreadystatechange = procesarCambioVal;
-	xmlhttp.open("POST", url, true);
-	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.open("GET", url, true);
 	xmlhttp.send(fd);	
 
 	function procesarCambioVal(){
 		if(xmlhttp.readyState == 4){
 			if(xmlhttp.status == 200 ){
-				alert("loha hecho");
+				var res = JSON.parse(xmlhttp.responseText);
+				alert(res.DISPONIBLE);
+				if(res.DISPONIBLE==true){
+					document.getElementById("msglogin").style.display="none";
+					document.getElementById("logindisponible").style.display="block";
+					alert("pero qe pasa");
+				}else{
+					document.getElementById("logindisponible").style.display="none";
+					document.getElementById("msglogin").style.display="block";
+					alert("pero qe pasa k ase"+res.DISPONIBLE);
+				}
+
 			}else{
 
 			}
