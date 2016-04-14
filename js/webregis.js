@@ -11,6 +11,7 @@ if(window.localStorage){
 		
 		fr.onload = function(){
 			document.getElementById("mostrarFoto").src=fr.result;
+			//alert(fr.result);
 		};
 
 		fr.readAsDataURL(mostrarFoto);
@@ -28,7 +29,8 @@ if(window.localStorage){
 		//menu para cuando estemos logeados
 		nav="<input type='checkbox' id='menu-trigger'><ul><li><label for='menu-trigger'><span>&equiv;</span></label></li><li><a href='index.html'><i class='fa fa-home'></i> <span>Inicio</span></a></li><li><a href='registro.html'><i class='fa fa-user'></i> <span>Perfil</span></a></li><li><a href='javascript:logout()'><i class='fa fa-sign-out'></i> <span>Logout</span></a></li><li><a href='buscar_viajes.html'><i class='fa fa-search'></i> <span>Buscar viajes</span></a></li><li><a href='crear_viaje.html'><i class='fa fa-plane'></i> <span>Crear viaje</span></a></li></ul>";
 		cuerpo="estoy logueado";
-
+		//alert(cuerpo);
+		//alert(sessionStorage.getItem('email')+" "+sessionStorage.getItem('nombre'));
 		document.getElementById("usu").value=sessionStorage.getItem('login');
 		document.getElementById("usu").disabled=true;
 		document.getElementById("email").value=sessionStorage.getItem('email');

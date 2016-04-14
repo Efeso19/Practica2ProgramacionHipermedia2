@@ -38,6 +38,8 @@ function envio(form){
 				sessionStorage.setItem('nombre', res.NOMBRE);
 				sessionStorage.setItem('foto', res.FOTO);
 
+				sessionStorage.setItem('pwd', document.getElementById("pwd").value);
+
 				var aux=res.ULTIMO_ACCESO;
 				var parts = aux.split(' ');
 				var parts2= parts[0].split('-');

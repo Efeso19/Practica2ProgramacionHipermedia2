@@ -1,4 +1,17 @@
 
+function comprobar(){
+	if(sessionStorage.getItem('logged')){
+		//he accedido desde perfil
+
+	}else{
+		//vengo de login
+
+	}
+
+}
+
+
+
 function crearObjAjax(){
 	var xmlhttp;
 	if(window.XMLHttpRequest){
@@ -11,64 +24,69 @@ function crearObjAjax(){
 
 
 
-function registrarse(form){
+function registrarse(frm){
 	var fd = new FormData();
+	if (sessionStorage.getItem('logged')){
+		
+		fd.append("clave", sessionStorage.getItem("clave"));
+
+		fd.append("login", document.getElementById("usu").value);
+		sessionStorage.setItem("login", document.getElementById("usu").value);
+
+
+		fd.append("email", document.getElementById("email").value);
+		sessionStorage.setItem("email", document.getElementById("email").value);
+
+		fd.append("nombre", document.getElementById("nombre").value);
+		sessionStorage.setItem("nombre", document.getElementById("nombre").value);
+
+
+		//fd.append("foto", document.getElementById('foto'));
+		fd.append("pwd", sessionStorage.getItem("pwd"));
+		fd.append("pwd2", sessionStorage.getItem("pwd"));
+		//fd.append("pwd2", document.getElementById("pwd2").value);
+		
+
+
+		var n = sessionStorage.getItem('nombre');
+		var f =	sessionStorage.getItem('foto');
+		var e = sessionStorage.getItem('email');
+		var p = sessionStorage.getItem('pwd');
+		alert("subiendo foto");
+	}else{
+		fd = new FormData(frm);
+		var n = document.getElementById('nombre').value;
+		var f =	document.getElementById('foto').files[0];
+		var e = document.getElementById('email').value;
+		var p = document.getElementById('pwd').value;
+	}
+
+	
 	var xmlhttp = crearObjAjax();
 	var url="rest/usuario/";
-	var u = document.getElementById("usu").value;
-	var p = document.getElementById("pwd").value;
-	var p2 = document.getElementById("pwd2").value;
-	var n = document.getElementById("nombre").value;
-	var e = document.getElementById("email").value;
-	var f = document.getElementById("foto").value;
 
-	if(p==null &&p2==null){
-		alert("ambas conaseñas son null");
-	}
+
+	/*
+	fd.append("usu", document.getElementById("usu").value);
+	fd.append("pwd", document.getElementById("pwd").value);
+	fd.append("pwd2", document.getElementById("pwd2").value);
+	fd.append("nombre", document.getElementById("nombre").value);
+	fd.append("email", document.getElementById("email").value);
+	*/
 
 	//alert(document.getElementById("usu").value+" "+document.getElementById("pwd").value+" "+document.getElementById("pwd2").value+" "+document.getElementById("nombre").value+" "+document.getElementById("email").value);
-			var aux=f;
-			var parts = aux.split('\\');
-			var parts2= parts[2];
-			alert(parts2);
+	//var args = "pwd=" + p+"&login=" + u +"&pwd2="+p2+"&nombre="+n+"&email="+e+"&foto=";
 
-
-	var args = "pwd=" + p+"&login=" + u +"&pwd2="+p2+"&nombre="+n+"&email="+e+"&foto="+parts2;
-
-	xmlhttp.onreadystatechange = procesarCambioReg;
-	xmlhttp.open("POST", url, true);
-	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	var resul = 0;
-
-	if(document.getElementById("foto")!=null){
-		//compruebo la foto
-		inp = document.getElementById("foto");
-		if(inp.files[0]!=null){
-			var peso=inp.files[0];
-			resul=peso.size;
-		}
-	}
-	if(resul<=500*1024){
-		console.log(args);
-		//si es menor de 500kb mmando la foto
-		xmlhttp.send(args);
-	}else{
-
-		document.getElementById("foto").value="";
-		document.getElementById("fotomsg").style.display="initial";
-	}
-
-
-	function procesarCambioReg(){
+	xmlhttp.onload = function(){
 		
-		
-
 		if(xmlhttp.readyState == 4){
 			if(xmlhttp.status == 200 ){
 				//var usuario = validarUsuario(document.getElementById("usu").value);
+
 				sessionStorage.setItem('nombre', n);	
 				sessionStorage.setItem('foto', f);
 				sessionStorage.setItem('email', e);
+				sessionStorage.setItem('pwd', p);
 				document.getElementById("usu").disabled=true;
 				document.getElementById("pwd").disabled=true;
 				document.getElementById("pwd2").disabled=true;
@@ -78,7 +96,12 @@ function registrarse(form){
 				document.getElementById("eliminar").disabled=true;
 				document.getElementById("regristrarsebutton").disabled=true;
 				document.getElementById("msgpwd").style.display="none";
-				document.getElementById("regisok").style.display="block";
+				if (sessionStorage.getItem('logged')){
+					document.getElementById("modok").style.display="block";
+				}else{
+					document.getElementById("regisok").style.display="block";
+				}
+				
 			}else if(xmlhttp.status == 400){
 				alert(document.getElementById("pwd").value+" "+document.getElementById("pwd2").value+" estoy comparando las cotnraseñas");
 				validarPassword(document.getElementById("pwd").value, document.getElementById("pwd2").value);
@@ -86,6 +109,33 @@ function registrarse(form){
 
 			}
 		}
+
+		return false;
+
+	};
+	xmlhttp.open("POST", url, true);
+	var resul = 0;
+	
+	if(document.getElementById("foto")!=null){
+		//compruebo la foto
+		inp = document.getElementById("foto");
+		if(inp.files[0]!=null){
+			var peso=inp.files[0];
+			resul=peso.size;
+		}
+	}
+	if(resul<=500*1024){
+		console.log(fd);
+		//si es menor de 500kb mmando la foto
+		xmlhttp.send(fd);
+	}else{
+		document.getElementById("foto").value="";
+		document.getElementById("fotomsg").style.display="initial";
+	}
+
+
+	function procesarCambioReg(){
+		
 	}
 	//console.log(xmlhttp);
 	return false;
@@ -117,6 +167,12 @@ function validarPassword(pwd1, pwd2){
 function ToLogin(){
 
 	window.location.replace("login.html");
+
+}
+
+function ToPerfil(){
+
+	window.location.replace("registro.html");
 
 }
 

@@ -7,8 +7,11 @@
 	
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	</head>
-	<body>
+	<body onload="comprobar();">
+		<script type="text/javascript">
 
+
+		</script>
 		<header>
 			
 			<img src="Imagenes/logotipo.png" height="40" width="40" alt="logo de la web"> <h1>Travell</h1>
@@ -28,18 +31,19 @@
 			-->
 		</nav>
 		<script type="text/javascript" src="js/webregis.js" async defer></script>
-		<script type="text/javascript" src="js/registro.js" async defer></script>
+		<script type="text/javascript" src="js/registro.js" async ></script>
 
 
 		<section class="espacio_to_nav">
 			<h2>Registrarse</h2>
-			<form name="regisform" id="regisform" onsubmit="return registrarse(this)" action="#">
+			<form name="regisform" id="regisform" onsubmit="return registrarse(this);" action="#">
 				
 				<label for="usu">Nombre de usuario:</label>
 				<br>
-				<input type="text" id="usu" name="usu" placeholder="Usuario" required autofocus pattern="[a-zA-Z0-9]{5,20}" maxlength="20" onchange="">
+				<input type="text" id="usu" name="login" placeholder="Usuario" required autofocus pattern="[a-zA-Z0-9]{5,20}" maxlength="20" onchange="">
 				<br>
 				<p id="regisok">Usted se ha registrado correctamente. Redirigiendo.<br><input type='button' value='Cerrar' onclick='ToLogin();'/><br></p>
+				<p id="modok">Se han cambiado los datos correctamente. Redirigiendo.<br><input type='button' value='Cerrar' onclick='ToPerfil();'/><br></p>
 				<!-- En el usuario he de preguntar cual es el minimo de caracteres -->
 				
 				<label for="pwd">Contrase&ntilde;a:</label>
