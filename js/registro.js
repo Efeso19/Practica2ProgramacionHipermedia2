@@ -42,10 +42,31 @@ function registrarse(frm){
 
 
 		//fd.append("foto", document.getElementById('foto'));
-		fd.append("pwd", sessionStorage.getItem("pwd"));
-		fd.append("pwd2", sessionStorage.getItem("pwd"));
+
 		//fd.append("pwd2", document.getElementById("pwd2").value);
 		
+		if(document.getElementById("pwd").value!=""){
+			var soniguales= validarPassword(document.getElementById("pwd").value, document.getElementById("pwd2").value)
+			if(soniguales==0){
+				fd.append("pwd", document.getElementById("pwd").value);
+				fd.append("pwd2", document.getElementById("pwd2").value);
+				sessionStorage.setItem("pwd", document.getElementById("pwd").value);
+			}else{
+				fd.append("pwd", sessionStorage.getItem("pwd"));
+				fd.append("pwd2", sessionStorage.getItem("pwd"));			
+			}
+		}else{
+			fd.append("pwd", sessionStorage.getItem("pwd"));
+			fd.append("pwd2", sessionStorage.getItem("pwd"));
+		}
+
+
+
+
+
+
+
+
 
 
 		var n = sessionStorage.getItem('nombre');
@@ -147,9 +168,6 @@ function validarUsuario(user){
 	var url="";
 	xmlhttp.onreadystatechange = procesarUsuario;
 	xmlhttp.open("GET", )
-
-
-
 }*/
 
 function validarPassword(pwd1, pwd2){
@@ -161,7 +179,9 @@ function validarPassword(pwd1, pwd2){
 		document.getElementById("pwd2").value="";
 		document.getElementById("pwd").focus();
 		//document.getElementById("msgpwd").style.color="#F00";
+		return pwd1.localeCompare(pwd2);
 	}
+	return pwd1.localeCompare(pwd2);
 }
 
 function ToLogin(){
