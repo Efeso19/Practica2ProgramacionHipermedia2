@@ -40,7 +40,7 @@ var mostrar="";
 function pedirInfoViaje(){	
 	/*var urlNum = window.location.href.split('?').pop();
 	alert(urlNum[3]);*/
-	alert(window.location.href);
+	//alert(window.location.href);
 	var idrec=parseURLParams(window.location.href);
 	console.log(idrec);
 

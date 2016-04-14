@@ -31,7 +31,7 @@ function buscar(){
 	var autor = document.getElementById('l').value;
 	var total = document.getElementById('bt').value;
 	var pagina = 0;
-	var pagPorRegis = 2;
+	var pagPorRegis = 1;
 	//alert(tit+" "+desc+" "+fechaini+" "+fechafin+" "+valmin+" "+valmax+" "+autor+" "+total);
 	var aux=paginaActual-1//resta 1 a la pagina actual para poner pedirla
 
@@ -90,7 +90,8 @@ function buscar(){
 					var aux=res.FILAS[i].FECHA_INICIO;
 					var parts = aux.split(' ');
 					var parts2= parts[0].split('-');
-					mostrar+="<article><a href='javascript:pasarvariable("+res.FILAS[i].ID+");'><h3>"+res.FILAS[i].NOMBRE+"</h3></a><img src='fotos/"+res.FILAS[i].ID+"/"+res.FILAS[i].FOTO+"' alt='"+res.FILAS[i].DESCRIPCION_FOTO+"'/><div class='descripcionfoto'>"+res.FILAS[i].DESCRIPCION+" <a href='javascript:viaje("+res.FILAS[i].ID+");'>Ver más</a></div>Valoraci&oacute;n:<div class='star-rating'>"
+					var pruebatonta="<a href='javascript:pasarvariable("+res.FILAS[i].ID+");'>";
+					mostrar+="<article>"+pruebatonta+"<h3>"+res.FILAS[i].NOMBRE+"</h3></a><img src='fotos/"+res.FILAS[i].ID+"/"+res.FILAS[i].FOTO+"' alt='"+res.FILAS[i].DESCRIPCION_FOTO+"'/><div class='descripcionfoto'>"+res.FILAS[i].DESCRIPCION+" "+pruebatonta+"Ver más</a></div>Valoraci&oacute;n:<div class='star-rating'>"
 					for(j=0; j<res.FILAS[i].VALORACION; j++){
 						mostrar+="<a class='pintada'>&#9733;</a>"
 					}
