@@ -1,4 +1,5 @@
 
+
 function crearObjAjax(){
 	var xmlhttp;
 	if(window.XMLHttpRequest){
@@ -43,6 +44,8 @@ function envio(form){
 				var parts3 = parts[1].split(':');
 				document.getElementById("loginok").innerHTML="Bienvenido "+res.LOGIN+". Tu última conexión fue el "+parts2[0]+"/"+parts2[1]+"/"+parts2[2]+" a las "+parts3[0]+":"+parts3[1]+"<br><input type='button' value='Cerrar' onclick='ToInicio();'/>";
 				document.getElementById("loginok").style.display = "initial";
+				document.getElementById("loguearse").disabled=true;
+				//alert("jummm");
 				//location.replace("index.html");
 			}else if(objajax.status == 401){
 				bloquear();

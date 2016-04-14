@@ -31,7 +31,22 @@ h2{
 	display: none;
 	width: 210px;
 	position: absolute;
-	top: 170px; 
+	top: 50%;
+	left: 40%; 
+
+	animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+
+
+	-webkit-animation: fadein .5s; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein .5s; /* Firefox < 16 */
+	-ms-animation: fadein .5s; /* Internet Explorer */
+	-o-animation: fadein .5s; /* Opera < 12.1 */
+	animation: fadein .5s;
+
+border-style: solid;
+	
 }
 
 #loginmsg, #loginok{
@@ -569,13 +584,20 @@ input:hover{
 
 }
 
-#msgpwd{
+#msgpwd, #fotomsg{
 	display: none;
+	background-color: red;
+	
 }
 
-#avatar{
+#avatar, #ocultado{
 	
 	display: none;
 
 	
+}
+
+#min, #max{
+
+	width: 20px;
 }

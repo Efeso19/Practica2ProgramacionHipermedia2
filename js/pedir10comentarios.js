@@ -56,7 +56,7 @@ function comentarios(){
 			uno = res.FILAS[i].ID_VIAJE;
 			dos = res.FILAS[i].ID;
 //alert(res.FILAS[i].ID_VIAJE+","+res.FILAS[i].ID+","+i);
-			mostrarC+="<article><a href='javascript:pasarvariable("+res.FILAS[i].ID_VIAJE+", "+res.FILAS[i].ID+")'><h4>"+res.FILAS[i].TITULO+"</h4></a><em>"+res.FILAS[i].TEXTO+"</em><br><p>"+res.FILAS[i].LOGIN+", <time datetime='"+res.FILAS[i].FECHAHORA+"'>";
+			mostrarC+="<article><a href='javascript:pasarvariable("+res.FILAS[i].ID_VIAJE+", "+res.FILAS[i].ID+");'><h4>"+res.FILAS[i].TITULO+"</h4></a><em>"+res.FILAS[i].TEXTO+"</em><br><p>"+res.FILAS[i].LOGIN+", <time datetime='"+res.FILAS[i].FECHAHORA+"'>";
 			
 			mostrarC+=""+parts2[2]+"/"+parts2[1]+"/"+parts2[0]+", "+parts3[0]+":"+parts3[1]+"</time></p><span class='cortar'><a href='javascript:viaje("+res.FILAS[i].ID_VIAJE+");''>"+res.FILAS[i].NOMBRE_VIAJE+"</a></span></article>";
 			mostarC="";
@@ -98,6 +98,16 @@ function comentarios(){
 
 function pasarvariable(valor, comen){
 	//alert("he ntrado "+valor+ " "+comen);
+	//alert(comen);
+	console.log(comen);
+
+	/*if(isNaN(comen)==false){
+		alert("cargo en la puta");
+		location.href="viaje.html?id="+valor+"";
+	}else{
+		alert("me vuelvo a cagar en la puta"+comen);
+		location.href="viaje.html?id="+valor+"&comen="+comen+"";
+	}*/
 	location.href="viaje.html?id="+valor+"&comen="+comen+"";
 	localStorage.setItem("idviaje", valor);
 	localStorage.setItem("idcomentario", comen);

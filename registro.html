@@ -33,18 +33,19 @@
 
 		<section class="espacio_to_nav">
 			<h2>Registrarse</h2>
-			<form name="regisform" id="regisform" onsubmit="registrarse(this)">
+			<form name="regisform" id="regisform" onsubmit="return registrarse(this)" action="#">
 				
 				<label for="usu">Nombre de usuario:</label>
 				<br>
-				<input type="text" id="usu" name="usu" placeholder="Usuario" required autofocus pattern="[a-zA-Z0-9]{5,20}" maxlength="20">
-				<p id="regisok"></p>
-				<!-- En el usuario he de preguntar cual es el minimo de caracteres -->
+				<input type="text" id="usu" name="usu" placeholder="Usuario" required autofocus pattern="[a-zA-Z0-9]{5,20}" maxlength="20" onchange="">
 				<br>
+				<p id="regisok">Usted se ha registrado correctamente. Redirigiendo.<br><input type='button' value='Cerrar' onclick='ToLogin();'/><br></p>
+				<!-- En el usuario he de preguntar cual es el minimo de caracteres -->
+				
 				<label for="pwd">Contrase&ntilde;a:</label>
 				<br>
 				<input type="password" id="pwd" name="pwd" placeholder="*******" required pattern="[a-zA-Z][a-zA-Z0-9_-]{5,20}" maxlength="20">
-				<div id='msgpwd'>Las contrase&ntilde;as no coindicen<br></div>
+				<div id='msgpwd'><br>Las contrase&ntilde;as no coindicen<br></div>
 				<!-- En el password he de preguntar cual es el minimo de caracteres -->
 				<br>
 				<label for="pwd2">Repetir contrase&ntilde;a:</label>
@@ -64,13 +65,14 @@
 				<label for="foto">Foto:</label>
 				<br>
 				<input type="file" id="foto" name="foto" onchange="mostrarFotoM()">
+				<div id='fotomsg'><br>El archivo subido pesa mas de 500KB, por favor sube otro archivo<br></div>
 				<div id="avatar">
 				<img src="" alt="" id="mostrarFoto" width="100" height="100">
 				<br>
 				<input type="button" id="eliminar" name="eliminar" onclick="eliminarFoto()" value="Eliminar foto">
 				
 				</div>
-				<input type="submit" id ="regristrarsebutton" value="Registrarse" >
+				<input type="submit" id ="regristrarsebutton" value="Enviar" >
 			</form>
 		</section>
 		<footer>
@@ -80,3 +82,6 @@
 	</body>
 
 </html>
+
+
+

@@ -33,11 +33,11 @@ if(window.localStorage){
 		document.getElementById("usu").disabled=true;
 		document.getElementById("email").value=sessionStorage.getItem('email');
 		document.getElementById("nombre").value=sessionStorage.getItem('nombre');
-		alert(sessionStorage.getItem('foto'));
 		document.getElementById("avatar").style.display = "initial";
 		//document.getElementById("foto").value=sessionStorage.getItem('foto');
 		document.getElementById("mostrarFoto").src="fotos/usu/"+sessionStorage.getItem('foto');
-
+		document.getElementById("pwd").required=false;
+		document.getElementById("pwd2").required=false;
 
 
 
@@ -47,7 +47,7 @@ if(window.localStorage){
 	}else{
 		//menu para cuando no estamos logeados
 		nav="<input type='checkbox' id='menu-trigger'><ul><li><label for='menu-trigger'><span>&equiv;</span></label></li><li><a href='index.html'><i class='fa fa-home'></i> <span>Inicio</span></a></li><li><a href='login.html'><i class='fa fa-sign-in'></i> <span>Login</span></a></li><li><a href='registro.html'><i class='fa fa-plus'></i> <span>Registrarse</span></a></li> <li><a href='buscar_viajes.html'><i class='fa fa-search'></i> <span>Buscar viajes</span></a></li></ul>";
-		
+		/*
 		cuerpo="<h2>Registrarse</h2><form name='regisform' id='regisform' onsubmit='registrarse(this)' >";
 		cuerpo+="<label for='usu'>Nombre de usuario:</label><br>";
 		cuerpo+="<input type='text' id='usu' name='usu' placeholder='Usuario' required autofocus pattern='[a-zA-Z0-9]{5,20}'' maxlength='20'><br>";
@@ -63,6 +63,7 @@ if(window.localStorage){
 		cuerpo+="<label for='email'>Email:</label><br><input type='email' id='email' name='email' placeholder='Email' required><br>";
 		cuerpo+="<label for='foto'>Foto:</label><br><input type='file' id='foto' name='foto'><br><input type='submit' id ='regristrarboton' value='Registrarse'>";
 		cuerpo+="</form>";
+		*/
 	}
 	//imprimimos el CONTENIDO de la etiqueta nav ya que ésta lleva el id
 	document.getElementById("navegacion").innerHTML=nav;

@@ -31,6 +31,8 @@ function parseURLParams(url) {
 	console.log(idrec);
 
 
+
+
 function main(){
 
 	pedirComentarios();
@@ -78,14 +80,13 @@ function pedirComentarios(){
 		document.getElementById("ParaImprimirLosComentarios").innerHTML=mostrar;
 		if(hayComentario && localStorage.getItem("idcomentario").localeCompare(undefined)!=0){
 			//no termina de hacer el foco!!!!!
-			alert(idrec.comen[0]+"debo hacer el foco");
+
 			var idaux=idrec.comen[0];
-			alert(idaux+"aaaaa");
 			document.getElementById("ParaImprimirLosComentarios").focus();
 		}else{
-			alert("no se ha actualizado la variable");
+			//alert("no se ha actualizado la variable");
 		}
-
+location.hash="#"+localStorage.getItem('idcomentario');
 	}
 										
 	xmlhttp.open('GET', 'rest/comentario/?id_viaje='+localStorage.getItem("idviaje"), true);
@@ -130,11 +131,14 @@ function realizarComentario(form){
 				//alert("Hubo algun problema, tu lo crees?");
 			}
 		}
+
+
 	}
 	form.reset();//para limpiar el formulario
 	document.getElementById("ParaImprimirLosComentarios").innerHTML="";//para limpiar la zona de comentarios
 	//pedirComentarios();
 	comentarioyarealizado();
+	
 	return false;
 	
 }
@@ -177,3 +181,6 @@ function respondiendo(id){
 	
 
 }
+
+
+

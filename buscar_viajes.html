@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	</head>
 	<body>
+		<script type="text/javascript" src="js/buscar.js"  defer></script>
 			<!-- que opciones del menu muestro ahora? -->
 		<header>
 			
@@ -28,57 +29,44 @@
 			-->
 		</nav>
 		<script type="text/javascript" src="js/web.js"></script>
-
-
-
-
 		<section class="espacio_to_nav">
 			<h2>Buscar viaje</h2>
-			<form action="POST">
+			<form name="buscarform" id="buscarform" onsubmit="return buscar();">
 					
-					<label for="Titulobusqueda">T&iacute;tulo</label>
-					<br>
-					<input type="text" id="Titulobusqueda" placeholder="Título">
-					<br>
-					<label for="descripcionbusqueda">Descripci&oacute;n</label>
-					<br>
-					<input type="text" id="descripcionbusqueda" placeholder="Descripción">
-					<br>
-					<label>Fecha</label>
-					<br>
-					<input type="date" id="fechainicial" > entre <input type="date" id="fechafinal">
-					<br>
-					<label>valoraci&oacute;n</label>
-					<br>
-						<input type="range" name="valoracionusuario" min="1" max="5" value="1" >
-					<!--
-					<div class="star-rating-valorar">
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-								</div>-->
-					<br>
-					<label for="autorbusqueda">Autor del viaje</label>
-					<br>
-					<input type="text" placeholder="Autor de viaje" id="autorbusqueda">
-					<br>
-					<input type="submit" value="Buscar" id="buscarviaje">
+				<label for="n">T&iacute;tulo</label>
+				<br>
+				<input type="text" id="n" name="n" placeholder="Título">
+				<br>
+				<label for="d">Descripci&oacute;n</label>
+				<br>
+				<input type="text" id="d" name="d" placeholder="Descripción">
+				<br>
+				<label>Fecha</label>
+				<br>
+				<input type="date" id="fi" name="fi"> entre <input type="date" id="ff" name="ff">
+				<br>
+				<label>valoraci&oacute;n</label>
+				<br>
+				<input type="range" name="vi" id="vi" min="1" max="5" value="1" onchange="updateMin(this.value, vf.value);"> <input type="text" id="min" value="1" disabled><br>entre<br> <input type="range" name="vf" id="vf" min="1" max="5" value="5" onchange="updateMax(vf.value, vi.value);"> <input type="text" id="max" value="5" disabled>
+				<br>
+				<label for="l">Autor del viaje</label>
+				<br>
+				<input type="text" placeholder="Autor de viaje" id="l" name="l">
+				<br>
+				<label for="bt">B&uacute;squeda global (T&iacute;tulo y Descripci&oacute;n)</label>
+				<br>
+				<input type="text" id="bt" name="bt" placeholder="B&uacute;squeda global (T&iacute;tulo y Descripci&oacute;n)">
+				<br>
+				<input type="submit" value="Buscar" id="buscarviaje">
 
 			</form>
 		</section>
 		<br>
 
-
-
-
-
-
-
-		<section>
+		<section id="seccionResultados">
 			<h2>Resultados:</h2>
-			<div class="paracentrar">
+			<div class="paracentrar" id="imprimirBusqueda">
+			<!--
 				<article>
 					<a href="viaje.html"><h3>T&iacute;tulo del viaje</h3></a>
 					
@@ -98,168 +86,13 @@
 					<time datetime="2015-05-20">2015/05/26 22:55</time>
 					
 				</article>
-				<article>
-					<a href="viaje.html"><h3>T&iacute;tulo del viaje</h3></a>
-					<img src="Imagenes/paisajePractica1.jpg"  alt="imagen de un paisaje">
-					<div class="descripcionfoto">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita assumenda aliquid inventore ab ex deserunt alias culpa eaque quae. Harum quod voluptas, voluptatibus unde laboriosam quo rem repellendus obcaecati ipsa dignissimos, nam corporis excepturi. Itaque... <a href="viaje.html">ver m&aacute;s</a>
-					</div>
-					valoraci&oacute;n: <div class="star-rating">
-									<a class="pintada">&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-								</div>
-					<a href="">AutorDelViaje</a>
-					<time datetime="2013-01-07">2015/05/26 22:55</time>
-					
-				</article>
-				<article>
-					<a href="viaje.html"><h3>T&iacute;tulo del viaje</h3></a>
-					<img src="Imagenes/paisajePractica1.jpg" height="300" width="400" alt="imagen de un paisaje">
-					<div class="descripcionfoto">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita assumenda aliquid inventore ab ex deserunt alias culpa eaque quae. Harum quod voluptas, voluptatibus unde laboriosam quo rem repellendus obcaecati ipsa dignissimos, nam corporis excepturaaaai. Itaque... <a href="viaje.html">ver m&aacute;s</a>
-					</div>
-					valoraci&oacute;n: <div class="star-rating">
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a>&#9733;</a>
-								</div>
-					<a href="">AutorDelViaje</a>
-					<time datetime="2015-08-02">2015/05/26 22:55</time>
-					
-				</article>
-				<article>
-					<a href="viaje.html"><h3>T&iacute;tulo del viaje</h3></a>
-					<img src="Imagenes/paisajePractica1.jpg" height="300" width="400" alt="imagen de un paisaje">
-					<div class="descripcionfoto">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita assumenda aliquid inventore ab ex deserunt alias culpa eaque quae. Harum quod voluptas, voluptatibus unde laboriosam quo rem repellendus obcaecati ipsa dignissimos, nam corporis excepturi. Itaque... <a href="viaje.html">ver m&aacute;s</a>
-					</div>
-					valoraci&oacute;n: <div class="star-rating">
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-								</div>
-					<a href="">AutorDelViaje</a>
-					<time datetime="2014-04-19">2015/05/26 22:55</time>
-					
-				</article>
-				<article>
-					<a href="viaje.html"><h3>T&iacute;tulo del viaje</h3></a>
-					<img src="Imagenes/paisajePractica1.jpg" height="300" width="400" alt="imagen de un paisaje">
-					<div class="descripcionfoto">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita assumenda aliquid inventore ab ex deserunt alias culpa eaque quae. Harum quod voluptas, voluptatibus unde laboriosam quo rem repellendus obcaecati ipsa dignissimos, nam corporis excepturi. Itaque... <a href="viaje.html">ver m&aacute;s</a>
-					</div>
-					valoraci&oacute;n: <div class="star-rating">
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-								</div>
-					<a href="">AutorDelViaje</a>
-					<time datetime="2016-02-29">2015/05/26 22:55</time>
-					
-				</article>
-				<article>
-					<a href="viaje.html"><h3>T&iacute;tulo del viaje</h3></a>
-					<img src="Imagenes/paisajePractica1.jpg" height="300" width="400" alt="imagen de un paisaje">
-					<div class="descripcionfoto">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita assumenda aliquid inventore ab ex deserunt alias culpa eaque quae. Harum quod voluptas, voluptatibus unde laboriosam quo rem repellendus obcaecati ipsa dignissimos, nam corporis excepturi. Itaque... <a href="viaje.html">ver m&aacute;s</a>
-					</div>
-					valoraci&oacute;n: <div class="star-rating">
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-								</div>
-					<a href="">AutorDelViaje</a>
-					<time datetime="2015-06-28">2015/05/26 22:55</time>
-					
-				</article>
-				<article>
-					<a href="viaje.html"><h3>T&iacute;tulo del viaje</h3></a>
-					<img src="Imagenes/paisajePractica1.jpg" height="300" width="400" alt="imagen de un paisaje">
-					<div class="descripcionfoto">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita assumenda aliquid inventore ab ex deserunt alias culpa eaque quae. Harum quod voluptas, voluptatibus unde laboriosam quo rem repellendus obcaecati ipsa dignissimos, nam corporis excepturi. Itaque... <a href="viaje.html">ver m&aacute;s</a>
-					</div>
-					valoraci&oacute;n: <div class="star-rating">
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-								</div>
-					<a href="">AutorDelViaje</a>
-					<time datetime="2015-12-31">2015/05/26 22:55</time>
-					
-				</article>
-				<article>
-					<a href="viaje.html"><h3>T&iacute;tulo del viaje</h3></a>
-					<img src="Imagenes/paisajePractica1.jpg" height="300" width="400" alt="imagen de un paisaje">
-					<div class="descripcionfoto">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita assumenda aliquid inventore ab ex deserunt alias culpa eaque quae. Harum quod voluptas, voluptatibus unde laboriosam quo rem repellendus obcaecati ipsa dignissimos, nam corporis excepturi. Itaque... <a href="viaje.html">ver m&aacute;s</a>
-					</div>
-					valoraci&oacute;n: <div class="star-rating">
-									<a class="pintada">&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-								</div>
-					<a href="">AutorDelViaje</a>
-					<time datetime="2016-01-31">2015/05/26 22:55</time>
-					
-				</article>
-				<article>
-					<a href="viaje.html"><h3>T&iacute;tulo del viaje</h3></a>
-					<img src="Imagenes/paisajePractica1.jpg" height="300" width="400" alt="imagen de un paisaje">
-					<div class="descripcionfoto">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita assumenda aliquid inventore ab ex deserunt alias culpa eaque quae. Harum quod voluptas, voluptatibus unde laboriosam quo rem repellendus obcaecati ipsa dignissimos, nam corporis excepturi. Itaque... <a href="viaje.html">ver m&aacute;s</a>
-					</div>
-					valoraci&oacute;n: <div class="star-rating">
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-								</div>
-					<a href="">AutorDelViaje</a>
-					<time datetime="2015-10-30">2015/05/26 22:55</time>
-					
-				</article>
-				<article>
-					<a href="viaje.html"><h3>T&iacute;tulo del viaje</h3></a>
-					<img src="Imagenes/paisajePractica1.jpg" height="300" width="400" alt="imagen de un paisaje">
-					<div class="descripcionfoto">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita assumenda aliquid inventore ab ex deserunt alias culpa eaque quae. Harum quod voluptas, voluptatibus unde laboriosam quo rem repellendus obcaecati ipsa dignissimos, nam corporis excepturi. Itaque... <a href="viaje.html">ver m&aacute;s</a>
-					</div>
-					valoraci&oacute;n: <div class="star-rating">
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a class="pintada">&#9733;</a>
-									<a>&#9733;</a>
-								</div>
-					<a href="">AutorDelViaje</a>
-					<time datetime="2016-02-24">2015/05/26 22:55</time>
-					
-				</article>
+				
+			-->
+			</div>
+			<div id="ocultado">
+			<button onclick="toFirst();"><<</button><button onclick="toPrev()"><</button>Estoy en la pagina <span id="pagActual"> </span> de <span id="pagTot"> </span> <button onclick="toNext();">></button><button onclick="toLast();">>></button>
 			</div>
 		</section>
-
-
-
-
-
-
-
 
 
 		<footer>

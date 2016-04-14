@@ -8,7 +8,11 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	</head>
 	<body>
-
+		<script type="text/javascript">
+			if(!sessionStorage.getItem('logged')){
+				location.replace("login.html");
+			}	
+		</script>
 		<header>
 			
 			<img src="Imagenes/logotipo.png" height="40" width="40" alt="logo de la web"> <h1>Travell</h1>
@@ -37,8 +41,8 @@
 		
 				<form>
 
-					<label for="titulodelviaje">T&iacute;tulo del viaje</label>
-					<input type="text" id="titulodelviaje" maxlength="200" placeholder="T&iacute;tulo del viaje" required>
+					<label for="nombre">T&iacute;tulo del viaje</label>
+					<input type="text" id="nombre" name="nombre"maxlength="200" placeholder="T&iacute;tulo del viaje" required>
 					<br>
 					<label for="fechadesde">Desde </label>
 					<br>
@@ -48,9 +52,9 @@
 					<br>
 					<input type="date" id="fechahasta" required>
 					<br>
-					<label for="descripciondelviaje">Descripci&oacute;n</label>
+					<label for="descripcion">Descripci&oacute;n</label>
 					<br>
-					<textarea id="descripciondelviaje" maxlength="500" placeholder="Máximo 500 caractéres" rows="4" required cols="50" ></textarea>
+					<textarea id="descripcion" name="descripcion" maxlength="500" placeholder="Máximo 500 caractéres" rows="4" required cols="50" ></textarea>
 					<label>valoración:</label> <div class="star-rating-valorar">
 									<a>&#9733;</a>
 									<a>&#9733;</a>
