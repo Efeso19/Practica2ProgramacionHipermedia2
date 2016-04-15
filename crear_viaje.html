@@ -32,46 +32,49 @@
 			-->
 		</nav>
 		<script type="text/javascript" src="js/web.js"></script>
-		
+		<script type="text/javascript" src="js/crear.js"></script>
 		<br>
 		<section class="espacio_to_nav">
 			<h2>¡Crea tu viaje!</h2>
 			<br>
 				<br>
 		
-				<form>
+				<form name="formcreate" id="formcreate" onsubmit="return crearViaje(this);">
 
 					<label for="nombre">T&iacute;tulo del viaje</label>
-					<input type="text" id="nombre" name="nombre"maxlength="200" placeholder="T&iacute;tulo del viaje" required>
 					<br>
-					<label for="fechadesde">Desde </label>
+					<input type="text" id="nombre" name="nombre" maxlength="200" placeholder="T&iacute;tulo del viaje" required>
 					<br>
-					<input type="date" id="fechadesde" required>
+					<label for="fi">Desde </label>
 					<br>
-					<label for="fechahasta">Hasta</label>
+					<input type="date" id="fi" name="fi" required>
 					<br>
-					<input type="date" id="fechahasta" required>
+					<label for="ff">Hasta</label>
+					<br>
+					<input type="date" id="ff" name="ff" required>
 					<br>
 					<label for="descripcion">Descripci&oacute;n</label>
 					<br>
 					<textarea id="descripcion" name="descripcion" maxlength="500" placeholder="Máximo 500 caractéres" rows="4" required cols="50" ></textarea>
-					<label>valoración:</label> <div class="star-rating-valorar">
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-									<a>&#9733;</a>
-								</div>
-
-					<h2>Sube tus mejores fotos</h2>
-					<input type="file" id="subirfoto">
-					<input type="submit" value="Añadir fotografía">
+					<label for="v">valoración:</label> 
 					<br>
+					<input type="range" name="v" id="v" min="1" max="5" value="1" onchange="updateValue(this);"> <input type="text" id="valnum" value="1" disabled="">	
+					<article>
+					<h2>Sube tus mejores fotos</h2>
+					<input type="button" value="Añadir fotografía" onclick="anyadirFoto();">
+					<br>
+					<div id="zonaParaFotos">
+						
+
+
+					</div>
+
+					</article>
+					<!--<img src="Imagenes/paisajePractica1.jpg" alt="fotos subidas" class="fotossubidas">
+					<textarea  id="descripcionfotosubida1" maxlength="75" placeholder="descripcion de la imagen" rows="6" cols="20" required></textarea><button id="deletePhoto">X</button>
 					<img src="Imagenes/paisajePractica1.jpg" alt="fotos subidas" class="fotossubidas">
-					<textarea  id="descripcionfotosubida1" maxlength="75" placeholder="descripcion de la imagen" rows="6" cols="20" required></textarea>
-					<img src="Imagenes/paisajePractica1.jpg" alt="fotos subidas" class="fotossubidas">
-					<textarea  id="descripcionfotosubida2" maxlength="75" placeholder="descripcion de la imagen" rows="6" cols="20" required></textarea>
-					<input type="button" value="Eliminar ultima foto">
+					<textarea  id="descripcionfotosubida2" maxlength="75" placeholder="descripcion de la imagen" rows="6" cols="20" required></textarea><button id="deletePhot">X</button>
+					<input type="button" value="Eliminar ultima foto">-->
 					<input type="submit" value="Crear viaje">
 				</form>
 			

@@ -171,7 +171,7 @@ footer{
 }
 
 form{
-	width: 325px;
+	width: 350px;
 }
 
 nav{
@@ -186,7 +186,7 @@ nav{
 }
 
 textarea{
-	width: 100%;
+	/*width: 100%;*/
 }
 
 #descripcionfotosubida1, #descripcionfotosubida2{
@@ -431,6 +431,7 @@ input:hover{
 .fotossubidas{
 	width: 100px;
 	height: 100px;
+	padding-right: 5px;
 }
 
 @media (min-width: 480px) {
@@ -601,7 +602,19 @@ input:hover{
 	background-color: green;
 }
 
-#min, #max{
+#min, #max, #valnum{
 
 	width: 20px;
+}
+
+#zonaParaFotos > #descripcion{
+	width: auto;
+}
+
+.paraElMarco{
+	padding: 5px;
+	border-style: solid;
+}
+.textpadding{
+	margin-right: 6px;
 }

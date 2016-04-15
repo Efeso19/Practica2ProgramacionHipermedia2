@@ -31,7 +31,7 @@ function buscar(){
 	var autor = document.getElementById('l').value;
 	var total = document.getElementById('bt').value;
 	var pagina = 0;
-	var pagPorRegis = 1;
+	var pagPorRegis = 2;
 	//alert(tit+" "+desc+" "+fechaini+" "+fechafin+" "+valmin+" "+valmax+" "+autor+" "+total);
 	var aux=paginaActual-1//resta 1 a la pagina actual para poner pedirla
 

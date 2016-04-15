@@ -41,7 +41,7 @@ function registrarse(frm){
 		sessionStorage.setItem("nombre", document.getElementById("nombre").value);
 
 
-		//fd.append("foto", document.getElementById('foto'));
+		fd.append("foto", document.getElementById('foto').files[0]);
 
 		//fd.append("pwd2", document.getElementById("pwd2").value);
 		
@@ -103,7 +103,11 @@ function registrarse(frm){
 		if(xmlhttp.readyState == 4){
 			if(xmlhttp.status == 200 ){
 				//var usuario = validarUsuario(document.getElementById("usu").value);
-
+				var res = JSON.parse(xmlhttp.responseText);
+console.log(xmlhttp.responseText);
+//machaacar la F
+alert(res.foto);
+f=res.foto;
 				sessionStorage.setItem('nombre', n);	
 				sessionStorage.setItem('foto', f);
 				sessionStorage.setItem('email', e);
@@ -214,6 +218,8 @@ function validarUsu(){
 			if(xmlhttp.status == 200 ){
 				var res = JSON.parse(xmlhttp.responseText);
 				alert(res.DISPONIBLE);
+				console.clear();
+				console.log(res.DISPONIBLE);
 				if(res.DISPONIBLE==true){
 					document.getElementById("msglogin").style.display="none";
 					document.getElementById("logindisponible").style.display="block";
@@ -223,7 +229,6 @@ function validarUsu(){
 					document.getElementById("msglogin").style.display="block";
 					alert("pero qe pasa k ase"+res.DISPONIBLE);
 				}
-
 			}else{
 
 			}
