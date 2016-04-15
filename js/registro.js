@@ -33,13 +33,11 @@ function registrarse(frm){
 		fd.append("login", document.getElementById("usu").value);
 		sessionStorage.setItem("login", document.getElementById("usu").value);
 
-
 		fd.append("email", document.getElementById("email").value);
 		sessionStorage.setItem("email", document.getElementById("email").value);
 
 		fd.append("nombre", document.getElementById("nombre").value);
 		sessionStorage.setItem("nombre", document.getElementById("nombre").value);
-
 
 		fd.append("foto", document.getElementById('foto').files[0]);
 
@@ -60,15 +58,6 @@ function registrarse(frm){
 			fd.append("pwd2", sessionStorage.getItem("pwd"));
 		}
 
-
-
-
-
-
-
-
-
-
 		var n = sessionStorage.getItem('nombre');
 		var f =	sessionStorage.getItem('foto');
 		var e = sessionStorage.getItem('email');
@@ -82,21 +71,8 @@ function registrarse(frm){
 		var p = document.getElementById('pwd').value;
 	}
 
-	
 	var xmlhttp = crearObjAjax();
 	var url="rest/usuario/";
-
-
-	/*
-	fd.append("usu", document.getElementById("usu").value);
-	fd.append("pwd", document.getElementById("pwd").value);
-	fd.append("pwd2", document.getElementById("pwd2").value);
-	fd.append("nombre", document.getElementById("nombre").value);
-	fd.append("email", document.getElementById("email").value);
-	*/
-
-	//alert(document.getElementById("usu").value+" "+document.getElementById("pwd").value+" "+document.getElementById("pwd2").value+" "+document.getElementById("nombre").value+" "+document.getElementById("email").value);
-	//var args = "pwd=" + p+"&login=" + u +"&pwd2="+p2+"&nombre="+n+"&email="+e+"&foto=";
 
 	xmlhttp.onload = function(){
 		
@@ -104,14 +80,14 @@ function registrarse(frm){
 			if(xmlhttp.status == 200 ){
 				//var usuario = validarUsuario(document.getElementById("usu").value);
 				var res = JSON.parse(xmlhttp.responseText);
-console.log(xmlhttp.responseText);
-//machaacar la F
-alert(res.foto);
-f=res.foto;
+				console.log(xmlhttp.responseText);
+				//machaacar la F
+				f=res.foto;
 				sessionStorage.setItem('nombre', n);	
 				sessionStorage.setItem('foto', f);
 				sessionStorage.setItem('email', e);
 				sessionStorage.setItem('pwd', p);
+				console.log(document.getElementById('foto').files[0]);
 				document.getElementById("usu").disabled=true;
 				document.getElementById("pwd").disabled=true;
 				document.getElementById("pwd2").disabled=true;
@@ -158,11 +134,6 @@ f=res.foto;
 		document.getElementById("fotomsg").style.display="initial";
 	}
 
-
-	function procesarCambioReg(){
-		
-	}
-	//console.log(xmlhttp);
 	return false;
 }
 /*

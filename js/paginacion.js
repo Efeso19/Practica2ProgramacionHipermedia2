@@ -31,27 +31,26 @@ function buscar(){
 	var autor = document.getElementById('l').value;
 	var total = document.getElementById('bt').value;
 	var pagina = 0;
-	var pagPorRegis = 2;
+	var pagPorRegis = 15;
 	//alert(tit+" "+desc+" "+fechaini+" "+fechafin+" "+valmin+" "+valmax+" "+autor+" "+total);
 	var aux=paginaActual-1//resta 1 a la pagina actual para poner pedirla
 
 	url+="pag="+aux+"&";
 	url+="lpag="+pagPorRegis+"&";
 
-
-	if (total!=null) {
+	if (total!="") {
 		url+="bt="+total+"&";
 	}else{
-		if(tit!=null){
+		if(tit!=""){
 			url+="n="+tit+"&";
 		}
-		if(desc!=null){
+		if(desc!=""){
 			url+="d="+desc+"&";
 		}
 	}
 	
 	if(fechaini!=null){
-		url+="fi="+fechafin+"&";
+		url+="fi="+fechaini+"&";
 	}
 	if(fechafin!=null){
 		url+="ff="+fechafin+"&";
@@ -62,7 +61,7 @@ function buscar(){
 	if(valmax!=null){
 		url+="vf="+valmax+"&";
 	}
-	if(autor!=null){
+	if(autor!=""){
 		url+="l="+autor+"&";
 	}
 
@@ -84,7 +83,13 @@ function buscar(){
 			if(xmlhttp.status == 200){
 				var res=JSON.parse(xmlhttp.responseText);
 				console.log(res);
-				paginasTotales=parseInt(res.TOTAL_COINCIDENCIAS%pagPorRegis+res.TOTAL_COINCIDENCIAS/pagPorRegis);
+				if(res.TOTAL_COINCIDENCIAS<=pagPorRegis){
+					paginasTotales=1;
+				}else{
+					paginasTotales=parseInt(res.TOTAL_COINCIDENCIAS/pagPorRegis);
+					paginasTotales++;
+				}
+				
 				var i=0;
 				//Falta dar formato a la fecha
 				for(i=0; i<res.FILAS.length;i++){

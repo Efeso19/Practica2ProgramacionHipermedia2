@@ -7,7 +7,8 @@
 		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	</head>
-	<body>
+	<body onload="declare();">
+	<div id="transparencia"></div>
 		<script type="text/javascript">
 			if(!sessionStorage.getItem('logged')){
 				location.replace("login.html");
@@ -43,6 +44,9 @@
 
 					<label for="nombre">T&iacute;tulo del viaje</label>
 					<br>
+					<p id="errorEnCrear">Por favor, sube alguna fotografía<br><input type='button' value='Cerrar' onclick="ToStateInitial();"/></p>
+					<p id="viajeCreado">Viaje creado correctamente. Redirigiendo...<br><input type='button' value='Cerrar' onclick="ToInicio();"/></p>
+
 					<input type="text" id="nombre" name="nombre" maxlength="200" placeholder="T&iacute;tulo del viaje" required>
 					<br>
 					<label for="fi">Desde </label>
@@ -64,7 +68,10 @@
 					<input type="button" value="Añadir fotografía" onclick="anyadirFoto();">
 					<br>
 					<div id="zonaParaFotos">
-						
+						<script type="text/javascript">
+							anyadirFoto();
+
+						</script>
 
 
 					</div>

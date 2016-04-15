@@ -49,11 +49,12 @@ border-style: solid;
 	
 }
 
-#loginmsg, #loginok{
+#loginmsg, #loginok, #errorEnCrear, #viajeCreado{
 	display: none;
 	background-color: white;
 	padding: 50px;
 	width: 210px;
+	z-index: 8;
 	margin-right: 10px;
   animation-duration: 3s;
   animation-name: slidein;
@@ -616,5 +617,50 @@ input:hover{
 	border-style: solid;
 }
 .textpadding{
+	position: relative;
 	margin-right: 6px;
+	top: -100px;
+	left: 50px;
+}
+
+#transparencia{
+	position: fixed;
+	top:0;
+	left:0;
+	z-index: 7;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.2);
+	display: none;
+}
+
+#divimg{
+	width: 38%;
+	margin: 0px;
+	height: 100px;
+}
+
+#perror{
+	position: relative;
+	left: -0px;
+	top: -121px;
+	opacity: 0;
+	z-index: 3;
+	width: 105px;
+	height: 93px;
+
+}
+
+#divcont{
+	height: 275px;
+}
+
+#fechafoto{
+	position: relative;
+	top: -100px;
+}
+
+#button{
+	position: relative;
+	top: -100px;
 }
