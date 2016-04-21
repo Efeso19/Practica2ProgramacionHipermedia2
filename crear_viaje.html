@@ -39,13 +39,13 @@
 			<h2>¡Crea tu viaje!</h2>
 			<br>
 				<br>
-		
+				
 				<form name="formcreate" id="formcreate" onsubmit="return crearViaje(this);">
-
+					<p id="loginmsg"></p>
 					<label for="nombre">T&iacute;tulo del viaje</label>
 					<br>
-					<p id="errorEnCrear">Por favor, sube alguna fotografía<br><input type='button' value='Cerrar' onclick="ToStateInitial();"/></p>
-					<p id="viajeCreado">Viaje creado correctamente. Redirigiendo...<br><input type='button' value='Cerrar' onclick="ToInicio();"/></p>
+					<!--<p id="errorEnCrear">Por favor, sube alguna fotografía<br><input type='button' value='Cerrar' onclick="ToStateInitial();"/></p>
+					<p id="viajeCreado">Viaje creado correctamente. Redirigiendo...<br><input type='button' value='Cerrar' onclick="ToInicio();"/></p>-->
 
 					<input type="text" id="nombre" name="nombre" maxlength="200" placeholder="T&iacute;tulo del viaje" required>
 					<br>

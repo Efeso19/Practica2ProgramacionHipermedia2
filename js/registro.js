@@ -96,11 +96,22 @@ function registrarse(frm){
 				document.getElementById("foto").disabled=true;
 				document.getElementById("eliminar").disabled=true;
 				document.getElementById("regristrarsebutton").disabled=true;
+				document.getElementById("transparencia").style.display="initial";
+				/*
+	<!--<p id="regisok"></p>
+				<p id="modok"></p>-->
+				*/
+			
+				document.getElementById("loginmsg").style.display = "initial";
+
+
 				document.getElementById("msgpwd").style.display="none";
 				if (sessionStorage.getItem('logged')){
-					document.getElementById("modok").style.display="block";
-				}else{
-					document.getElementById("regisok").style.display="block";
+					//document.getElementById("modok").style.display="block";
+						document.getElementById("loginmsg").innerHTML="Se han cambiado los datos correctamente. Redirigiendo.<br><input type='button' value='Cerrar' onclick='ToPerfil();'/><br>";
+				}else{s
+						document.getElementById("loginmsg").innerHTML="Usted se ha registrado correctamente. Redirigiendo.<br><input type='button' value='Cerrar' onclick='ToLogin();'/><br>";
+					//document.getElementById("regisok").style.display="block";
 				}
 				
 			}else if(xmlhttp.status == 400){
@@ -183,23 +194,26 @@ function validarUsu(){
 	xmlhttp.onreadystatechange = procesarCambioVal;
 	xmlhttp.open("GET", url, true);
 	xmlhttp.send(fd);	
-
+	document.getElementById("msglogin").style.display="none";
+	document.getElementById("logindisponible").style.display="none";
 	function procesarCambioVal(){
 		if(xmlhttp.readyState == 4){
 			if(xmlhttp.status == 200 ){
 				var res = JSON.parse(xmlhttp.responseText);
-				alert(res.DISPONIBLE);
 				console.clear();
 				console.log(res.DISPONIBLE);
-				if(res.DISPONIBLE==true){
-					document.getElementById("msglogin").style.display="none";
-					document.getElementById("logindisponible").style.display="block";
-					alert("pero qe pasa");
-				}else{
+				if(!res.DISPONIBLE){
 					document.getElementById("logindisponible").style.display="none";
 					document.getElementById("msglogin").style.display="block";
 					alert("pero qe pasa k ase"+res.DISPONIBLE);
 				}
+				if(res.DISPONIBLE){
+
+					document.getElementById("msglogin").style.display="none";
+					document.getElementById("logindisponible").style.display="block";
+					alert("pero qe pasa");
+				}
+
 			}else{
 
 			}

@@ -45,8 +45,8 @@ function envio(form){
 				var parts2= parts[0].split('-');
 				var parts3 = parts[1].split(':');
 				document.getElementById("transparencia").style.display="initial";
-				document.getElementById("loginok").innerHTML="Bienvenido "+res.LOGIN+". Tu última conexión fue el "+parts2[0]+"/"+parts2[1]+"/"+parts2[2]+" a las "+parts3[0]+":"+parts3[1]+"<br><input type='button' value='Cerrar' onclick='ToInicio();'/>";
-				document.getElementById("loginok").style.display = "initial";
+				document.getElementById("loginmsg").innerHTML="Bienvenido "+res.LOGIN+". Tu última conexión fue el "+parts2[0]+"/"+parts2[1]+"/"+parts2[2]+" a las "+parts3[0]+":"+parts3[1]+"<br><input type='button' value='Cerrar' onclick='ToInicio();'/>";
+				document.getElementById("loginmsg").style.display = "initial";
 				document.getElementById("loguearse").disabled=true;
 				//alert("jummm");
 				//location.replace("index.html");
@@ -58,7 +58,7 @@ function envio(form){
 				
 
 			}else{
-				alert("hubo algun problemita, k ase");
+				/*alert("hubo algun problemita, k ase");*/
 			}
 		}
 

@@ -3,10 +3,11 @@ var vectorDesc = [];
 var numFotos=0;
 var idViajeCreado;
 var x;
+
 function declare(){
 	x = document.querySelectorAll("#zonaParaFotos");
+	console.log(x);
 }
-
 
 
 function updateValue(val){
@@ -16,10 +17,9 @@ function updateValue(val){
 }
 
 function mostrarFotoM(inp) {
+
 	var div = inp.parentNode;
-	
 	var imagen = div.querySelector("img");
-	
 	fr = new FileReader();
 		fr.onload = function() {
 			imagen.src = fr.result;
@@ -48,8 +48,6 @@ function abrirFileDialog(){
 
 }
 
-
-
 function anyadirFoto(){
 	var div = document.createElement("DIV");//creo el div contenedor
 	div.setAttribute("id","divcont");
@@ -58,7 +56,7 @@ function anyadirFoto(){
 	input.setAttribute("type", "file"); //modifico sus atributps
 	input.setAttribute("name", "foto");
 	input.setAttribute("id", "foto");
-	input.setAttribute("onchange", "mostrarFotoM(this);");
+	input.setAttribute("onchange", "mostrarFotoM(this);tamanoImg();");
 	input.setAttribute("required", true);
 	div.appendChild(input);//lo anyado al div
 
@@ -109,11 +107,9 @@ function anyadirFoto(){
 }
 
 function main(frm){
-		alert("aaaaaaa");
+	alert("aaaaaaa");
 	crearViaje(frm);
-		alert("asdasdsad");
-
-
+	alert("asdasdsad");
 }
 
 function crearViaje(frm){
@@ -121,49 +117,69 @@ function crearViaje(frm){
 	var fd = new FormData();
 	xmlhttp = new crearObjAjax();
 	var url = "rest/viaje/";
-	fd.append("nombre", document.getElementById("nombre").value);
-	fd.append("descripcion", document.getElementById("descripcion").value);
-	fd.append("fi", document.getElementById("fi").value);
-	fd.append("ff", document.getElementById("ff").value);
-	fd.append("v", document.getElementById("valnum").value);
-	fd.append("login", sessionStorage.getItem("login"));
-	fd.append("clave", sessionStorage.getItem("clave"));
-	
-	xmlhttp.onload = function(){
-		//alert(xmlhttp.readyState+" "+xmlhttp.status);
-		if(xmlhttp.readyState == 4){
-			if(xmlhttp.status == 200){
-				var res = JSON.parse(xmlhttp.responseText);
-				console.log(res.ID_VIAJE);
-				idViajeCreado=res.ID_VIAJE;
-				var i=0;
-				if(x[0].children.length<2){
-					console.log(x[0].children);
-					document.getElementById("transparencia").style.display = "block";
-					document.getElementById("errorEnCrear").style.display="initial";
-				}else{
-					for(i=1; i<x[0].children.length; i++){
-						subirFotos(i);
+	var viaje = false;
+
+	viaje = tamanoImg();
+
+
+	if(viaje){
+		fd.append("nombre", document.getElementById("nombre").value);
+		fd.append("descripcion", document.getElementById("descripcion").value);
+		fd.append("fi", document.getElementById("fi").value);
+		fd.append("ff", document.getElementById("ff").value);
+		fd.append("v", document.getElementById("valnum").value);
+		fd.append("login", sessionStorage.getItem("login"));
+		fd.append("clave", sessionStorage.getItem("clave"));
+		xmlhttp.onload = function(){
+			//alert(xmlhttp.readyState+" "+xmlhttp.status);
+			if(xmlhttp.readyState == 4){
+				if(xmlhttp.status == 200){
+					var res = JSON.parse(xmlhttp.responseText);
+					console.log(res.ID_VIAJE);
+					idViajeCreado=res.ID_VIAJE;
+					var i=0;
+					if(x[0].children.length<2){
+						console.log(x[0].children);
+						document.getElementById("transparencia").style.display = "block";
+						//document.getElementById("errorEnCrear").style.display="initial";
+						document.getElementById("loginmsg").innerHTML="Por favor, sube alguna fotografía<br><input type='button' value='Cerrar' onclick='ToStateInitial();'/>";
+						document.getElementById("loginmsg").style.display = "initial";
+						/*	<!--<p id="errorEnCrear"></p>
+					<p id="viajeCreado"></p>-->
+
+						*/
+					}else{
+						i=1;
+						for(i=1; i<x[0].children.length; i++){
+							subirFotos(i);
+						}
+						document.getElementById("transparencia").style.display = "block";
+						document.getElementById("loginmsg").innerHTML="Viaje creado correctamente. Redirigiendo...<br><input type='button' value='Cerrar' onclick='ToInicio();'/>";
 					}
-					document.getElementById("transparencia").style.display = "block";
-					document.getElementById("viajeCreado").style.display = "initial";
+					/*if(x){
+							alert(x[0].children.length);
+					}*/
+					
+					
+				}else{
+
 				}
-				/*if(x){
-						alert(x[0].children.length);
-				}*/
-				
-				
-			}else{
-
 			}
-		}
+		};
+		xmlhttp.open("POST", url, true);
+		console.log(fd)
+		xmlhttp.send(fd);
 
 
-	};
+		
+	}else{
+		alert("Error en viajes, por favor, introduzca alguna fotografia");
+		document.getElementById("loginmsg").innerHTML="Por favor, sube alguna fotografía<br><input type='button' value='Cerrar' onclick='ToStateInitial();'/>";
+		document.getElementById("loginmsg").style.display = "initial";
+		anyadirFoto();
+	}
 
-	xmlhttp.open("POST", url, true);
-	console.log(fd)
-	xmlhttp.send(fd);
+
 
 	return false;
 
@@ -206,11 +222,12 @@ function subirFotos(it){
 		xmlhttp.open("POST", url, true);
 		xmlhttp.send(fd);	
 	}else{
-
+		/*
 		x[0].children[it].children[1].querySelector("#mostrarFoto").style.opacity = 0.3;
 		x[0].children[it].children[1].querySelector("#perror").style.border = "solid red";
 		x[0].children[it].children[1].querySelector("#perror").style.backgroundColor = "rgba(255, 0, 0, 0.3)";
 		x[0].children[it].children[1].querySelector("#perror").style.opacity = 1;
+		*/
 	}
 	
 
@@ -231,11 +248,32 @@ function crearObjAjax(){
 
 function ToStateInitial(){
 	document.getElementById("transparencia").style.display = "none";
-	document.getElementById("errorEnCrear").style.display="none";
+	document.getElementById("loginmsg").style.display="none";
 }
 
 function ToInicio(){
 
 	window.location.replace("index.html");
 
+}
+
+function tamanoImg(){
+		var viaje = false;
+	for(i=1; i<x[0].children.length; i++){
+		if(x[0].children[i].querySelector("#foto").files[0].size<=2*1024*1024){//IMPORTANTE cambia el 1 por un 2, ayq ue son 2 megas
+			x[0].children[i].children[1].querySelector("#mostrarFoto").style.border = "none";
+			x[0].children[i].children[1].querySelector("#mostrarFoto").style.opacity = 1;
+			x[0].children[i].children[1].querySelector("#perror").style.opacity = 0;
+			viaje = true;
+
+		}else{
+			x[0].children[i].children[1].querySelector("#mostrarFoto").style.border = "solid red";
+			x[0].children[i].children[1].querySelector("#mostrarFoto").style.opacity = 0.3;
+			x[0].children[i].children[1].querySelector("#perror").style.opacity = 1;
+			
+			viaje = false;
+		}
+	
+	}
+	return viaje;
 }

@@ -30,6 +30,7 @@
 				<li><a href="crear_viaje.html"><i class="fa fa-plane"></i> <span>Crear viaje</span></a></li>
 			</ul>
 			-->
+	
 		</nav>
 		<script type="text/javascript" src="js/webregis.js" async defer></script>
 		<script type="text/javascript" src="js/registro.js" async ></script>
@@ -38,15 +39,15 @@
 		<section class="espacio_to_nav">
 			<h2>Registrarse</h2>
 			<form name="regisform" id="regisform" onsubmit="return registrarse(this);" action="#">
-				
+				<p id="loginmsg"></p>
 				<label for="usu">Nombre de usuario:</label>
 				<br>
 				<input type="text" id="usu" name="login" placeholder="Usuario" required autofocus pattern="[a-zA-Z0-9]{5,20}" maxlength="20" onchange="validarUsu();">
 				<div id='msglogin'><br>No est&aacute; disponible<br></div>
 				<div id='logindisponible'><br>Est&aacute; disponible<br></div>
 				<br>
-				<p id="regisok">Usted se ha registrado correctamente. Redirigiendo.<br><input type='button' value='Cerrar' onclick='ToLogin();'/><br></p>
-				<p id="modok">Se han cambiado los datos correctamente. Redirigiendo.<br><input type='button' value='Cerrar' onclick='ToPerfil();'/><br></p>
+				<!--<p id="regisok">Usted se ha registrado correctamente. Redirigiendo.<br><input type='button' value='Cerrar' onclick='ToLogin();'/><br></p>
+				<p id="modok">Se han cambiado los datos correctamente. Redirigiendo.<br><input type='button' value='Cerrar' onclick='ToPerfil();'/><br></p>-->
 				<!-- En el usuario he de preguntar cual es el minimo de caracteres -->
 				
 				<label for="pwd">Contrase&ntilde;a:</label>
@@ -72,7 +73,7 @@
 				<label for="foto">Foto:</label>
 				<br>
 				<input type="file" id="foto" name="foto" onchange="mostrarFotoM()">
-				<div id='fotomsg'><br>El archivo subido pesa mas de 500KB, por favor sube otro archivo<br></div>
+				<div id='fotomsg'><br>El archivo subido pesa mas de 2MB, por favor sube otro archivo<br></div>
 				<div id="avatar">
 				<img src="" alt="" id="mostrarFoto" width="100" height="100">
 				<br>
