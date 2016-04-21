@@ -47,22 +47,21 @@ function buscar(){
 		if(desc!=""){
 			url+="d="+desc+"&";
 		}
-	}
-	
-	if(fechaini!=null){
-		url+="fi="+fechaini+"&";
-	}
-	if(fechafin!=null){
-		url+="ff="+fechafin+"&";
-	}
-	if(valmin!=null){
-		url+="vi="+valmin+"&";
-	}
-	if(valmax!=null){
-		url+="vf="+valmax+"&";
-	}
-	if(autor!=""){
-		url+="l="+autor+"&";
+		if(fechaini!=null){
+			url+="fi="+fechaini+"&";
+		}
+		if(fechafin!=null){
+			url+="ff="+fechafin+"&";
+		}
+		if(valmin!=null){
+			url+="vi="+valmin+"&";
+		}
+		if(valmax!=null){
+			url+="vf="+valmax+"&";
+		}
+		if(autor!=""){
+			url+="l="+autor+"&";
+		}
 	}
 
 	xmlhttp.onreadystatechange = busqueda;
@@ -272,3 +271,27 @@ function toLast(){
 		console.log("he ido a la ultima");
 	}
 }
+
+function mostrarOtrasOpciones(){
+
+	document.getElementById("opcAvanzadas").style.display = "initial";
+	document.getElementById("bt").value = "";
+	document.getElementById("bt").disabled = true;
+	document.getElementById("avanzada").style.display = "none";
+	
+
+
+}
+
+
+function ocultarOtrasOpciones(){
+
+	document.getElementById("opcAvanzadas").style.display = "none";
+	document.getElementById("bt").value = "";
+	document.getElementById("bt").disabled = false;
+	document.getElementById("avanzada").style.display = "initial";
+	
+
+
+}
+

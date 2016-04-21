@@ -670,3 +670,7 @@ input:hover{
 	position: relative;
 	top: -100px;
 }
+
+#opcAvanzadas{
+	display: none;
+}

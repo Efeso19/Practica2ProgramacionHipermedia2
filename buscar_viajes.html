@@ -33,31 +33,37 @@
 		<section class="espacio_to_nav">
 			<h2>Buscar viaje</h2>
 			<form name="buscarform" id="buscarform" onsubmit="return buscar();">
-					
-				<label for="n">T&iacute;tulo</label>
+				<label for="bt">B&uacute;squeda global</label>
 				<br>
-				<input type="text" id="n" name="n" placeholder="Título">
+				<input type="text" id="bt" name="bt" placeholder="B&uacute;squeda global">
 				<br>
-				<label for="d">Descripci&oacute;n</label>
-				<br>
-				<input type="text" id="d" name="d" placeholder="Descripción">
-				<br>
-				<label>Fecha</label>
-				<br>
-				<input type="date" id="fi" name="fi"> entre <input type="date" id="ff" name="ff">
-				<br>
-				<label>valoraci&oacute;n</label>
-				<br>
-				<input type="range" name="vi" id="vi" min="1" max="5" value="1" onchange="updateMin(this.value, vf.value);"> <input type="text" id="min" value="1" disabled><br>entre<br> <input type="range" name="vf" id="vf" min="1" max="5" value="5" onchange="updateMax(vf.value, vi.value);"> <input type="text" id="max" value="5" disabled>
-				<br>
-				<label for="l">Autor del viaje</label>
-				<br>
-				<input type="text" placeholder="Autor de viaje" id="l" name="l">
-				<br>
-				<label for="bt">B&uacute;squeda global (T&iacute;tulo y Descripci&oacute;n)</label>
-				<br>
-				<input type="text" id="bt" name="bt" placeholder="B&uacute;squeda global (T&iacute;tulo y Descripci&oacute;n)">
-				<br>
+				<input type="button" value="Búsqueda avanzada" id="avanzada" onclick="mostrarOtrasOpciones()">
+				<div id="opcAvanzadas">
+				
+					<br>
+					<label for="n">T&iacute;tulo</label>
+					<br>
+					<input type="text" id="n" name="n" placeholder="Título">
+					<br>
+					<label for="d">Descripci&oacute;n</label>
+					<br>
+					<input type="text" id="d" name="d" placeholder="Descripción">
+					<br>
+					<label>Fecha</label>
+					<br>
+					<input type="date" id="fi" name="fi"> entre <input type="date" id="ff" name="ff">
+					<br>
+					<label>valoraci&oacute;n</label>
+					<br>
+					<input type="range" name="vi" id="vi" min="1" max="5" value="1" onchange="updateMin(this.value, vf.value);"> <input type="text" id="min" value="1" disabled><br>entre<br> <input type="range" name="vf" id="vf" min="1" max="5" value="5" onchange="updateMax(vf.value, vi.value);"> <input type="text" id="max" value="5" disabled>
+					<br>
+					<label for="l">Autor del viaje</label>
+					<br>
+					<input type="text" placeholder="Autor de viaje" id="l" name="l">
+					<br>
+					<input type="button" value="Ocultar búsqueda avanzada" id="ocultarAvanzada" onclick="ocultarOtrasOpciones()">
+					<br>
+				</div>
 				<input type="submit" value="Buscar" id="buscarviaje">
 
 			</form>
