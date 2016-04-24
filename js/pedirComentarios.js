@@ -157,7 +157,7 @@ function crearObjAjax(){
 function comentarioyarealizado(){
 	//falta hacer
 	location.reload();
-	alert("jum");
+	//alert("jum");
 	window.setTimeout(document.getElementById("mensajeComentarioOk").style.display="initial", 2000);
 	
 

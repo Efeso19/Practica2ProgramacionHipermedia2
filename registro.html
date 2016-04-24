@@ -38,7 +38,7 @@
 
 		<section class="espacio_to_nav">
 			<h2>Registrarse</h2>
-			<form name="regisform" id="regisform" onsubmit="return registrarse(this);" action="#">
+			<form name="regisform" id="regisform" onsubmit="return registrarse(this);" >
 				<p id="loginmsg"></p>
 				<label for="usu">Nombre de usuario:</label>
 				<br>
@@ -75,7 +75,7 @@
 				<input type="file" id="foto" name="foto" onchange="mostrarFotoM()">
 				<div id='fotomsg'><br>El archivo subido pesa mas de 2MB, por favor sube otro archivo<br></div>
 				<div id="avatar">
-				<img src="" alt="" id="mostrarFoto" width="100" height="100">
+				<img src="#" alt="foto de perfil" id="mostrarFoto" width="100" height="100">
 				<br>
 				<input type="button" id="eliminar" name="eliminar" onclick="eliminarFoto()" value="Eliminar foto">
 				

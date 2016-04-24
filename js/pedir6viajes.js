@@ -75,7 +75,7 @@ function viajes(){
 			}
 			else{
 
-				alert("Hubo un problema con los datos devueltos");
+				//alert("Hubo un problema con los datos devueltos");
 				
 			}
 		}

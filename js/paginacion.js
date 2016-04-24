@@ -115,7 +115,7 @@ function buscar(){
 
 			}
 			else{
-				alert("Hubo un problema con los datos devueltos");	
+				//alert("Hubo un problema con los datos devueltos");	
 			}
 		}
 	}
@@ -220,7 +220,7 @@ function viajes10(){
 			}
 			else{
 
-				alert("Hubo un problema con los datos devueltos");
+				//alert("Hubo un problema con los datos devueltos");
 				
 			}
 		}

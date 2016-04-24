@@ -62,7 +62,7 @@ function registrarse(frm){
 		var f =	sessionStorage.getItem('foto');
 		var e = sessionStorage.getItem('email');
 		var p = sessionStorage.getItem('pwd');
-		alert("subiendo foto");
+		//alert("subiendo foto");
 	}else{
 		fd = new FormData(frm);
 		var n = document.getElementById('nombre').value;
@@ -115,7 +115,7 @@ function registrarse(frm){
 				}
 				
 			}else if(xmlhttp.status == 400){
-				alert(document.getElementById("pwd").value+" "+document.getElementById("pwd2").value+" estoy comparando las cotnraseñas");
+				//alert(document.getElementById("pwd").value+" "+document.getElementById("pwd2").value+" estoy comparando las cotnraseñas");
 				validarPassword(document.getElementById("pwd").value, document.getElementById("pwd2").value);
 				//alert("Hubo algun problema, tu lo crees?");
 
@@ -205,13 +205,13 @@ function validarUsu(){
 				if(!res.DISPONIBLE){
 					document.getElementById("logindisponible").style.display="none";
 					document.getElementById("msglogin").style.display="block";
-					alert("pero qe pasa k ase"+res.DISPONIBLE);
+					//alert("pero qe pasa k ase"+res.DISPONIBLE);
 				}
 				if(res.DISPONIBLE){
 
 					document.getElementById("msglogin").style.display="none";
 					document.getElementById("logindisponible").style.display="block";
-					alert("pero qe pasa");
+					//alert("pero qe pasa");
 				}
 
 			}else{

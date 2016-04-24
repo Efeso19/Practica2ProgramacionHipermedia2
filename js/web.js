@@ -35,7 +35,7 @@ if(window.localStorage){
 	//imprimimos el CONTENIDO de la etiqueta nav ya que ésta lleva el id
 	document.getElementById("navegacion").innerHTML=nav;
 }else{
-	alert("Tu navegador no soporta Web Storage");
+	//alert("Tu navegador no soporta Web Storage");
 }
 
 function logout(){
